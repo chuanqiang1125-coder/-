@@ -494,7 +494,59 @@
   .course-status-tag{display:inline-block;padding:2px 8px;border-radius:5px;font-size:10.5px;font-weight:600;margin-left:6px}
   .course-status-tag.done{background:#dcfce7;color:#16a34a}
   .course-status-tag.miss{background:#fef3c7;color:#d97706}
+  .course-status-tag.selected{background:#dbeafe;color:#2563eb}
   .course-status-tag.opt{background:var(--soft2);color:var(--muted)}
+  .course-row-done{opacity:.65}
+  .course-row-done .course-name{text-decoration:line-through;text-decoration-color:var(--muted)}
+  .course-action-done{color:var(--muted);display:inline-flex;align-items:center;opacity:.5}
+  .drop-btn{padding:6px 12px;border-radius:7px;font-size:12px;font-weight:600;border:1.5 solid #fecaca;color:#dc2626;background:#fff;transition:all .15s;cursor:pointer;border:1.5px solid #fecaca}
+  .drop-btn:hover{background:#fef2f2}
+  /* 课程 Tab 切换 */
+  .course-tabs{display:flex;gap:0;border-bottom:2px solid var(--line);margin-bottom:16px}
+  .course-tab{padding:10px 20px;border:none;background:transparent;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer;display:flex;align-items:center;gap:6px;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .15s}
+  .course-tab:hover{color:var(--text)}
+  .course-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+  .course-tab .ct-badge{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;padding:0 6px;border-radius:10px;font-size:11px;font-weight:700;background:var(--soft2);color:var(--muted)}
+  .course-tab.active .ct-badge{background:var(--accent-light);color:var(--accent)}
+  .course-tab-panel{display:none}
+  .course-tab-panel.active{display:block;animation:fadeIn .25s}
+  /* 课表 - 二维表格 */
+  .schedule-section{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:var(--shadow)}
+  .schedule-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+  .schedule-title{font-size:16px;font-weight:700;display:flex;align-items:center;gap:6px}
+  .schedule-stats{display:flex;gap:14px}
+  .sc-stat{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:3px}
+  .schedule-empty{text-align:center;padding:40px 20px;color:var(--muted)}
+  .schedule-empty .tt{font-size:15px;font-weight:600;color:var(--text);margin-top:12px}
+  .schedule-empty .sub{font-size:13px;margin-top:6px;line-height:1.6}
+  .tt-toolbar{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+  .tt-toolbar label{font-size:13px;color:var(--muted);font-weight:600}
+  .tt-sem-select{padding:7px 14px;border:1px solid var(--line);border-radius:8px;font-size:13px;outline:none;cursor:pointer;background:#fff}
+  .tt-sem-select:focus{border-color:var(--accent)}
+  .tt-grid-wrap{display:none}
+  .tt-grid-wrap.show{display:block;animation:fadeIn .25s}
+  .tt-table{width:100%;border-collapse:collapse;table-layout:fixed}
+  .tt-table th{padding:8px 4px;font-size:13px;font-weight:600;color:var(--muted);background:var(--soft);border:1px solid var(--line);text-align:center}
+  .tt-table th:first-child{width:80px}
+  .tt-corner{background:var(--soft2)}
+  .tt-slot-label{padding:6px 4px;text-align:center;border:1px solid var(--line);background:var(--soft);vertical-align:middle}
+  .tt-slot-name{font-size:12px;font-weight:600;color:var(--text)}
+  .tt-slot-time{font-size:10px;color:var(--muted);margin-top:2px}
+  .tt-cell{padding:6px;border:1px solid var(--line);vertical-align:top;transition:background .15s;cursor:default}
+  .tt-cell.empty{background:#fafbfc}
+  .tt-cell.done{background:#f0fdf4;border-color:#bbf7d0}
+  .tt-cell.done:hover{background:#dcfce7}
+  .tt-cell.ongoing{background:#eff6ff;border-color:#bfdbfe}
+  .tt-cell.ongoing:hover{background:#dbeafe}
+  .tt-course-name{font-size:12px;font-weight:600;color:var(--text);line-height:1.3;word-break:break-all}
+  .tt-course-meta{font-size:10px;color:var(--muted);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .tt-course-tag{display:inline-block;font-size:9px;padding:1px 5px;border-radius:3px;font-weight:600;margin-top:4px}
+  .tt-course-tag.done{background:#dcfce7;color:#16a34a}
+  .tt-course-tag.ongoing{background:#dbeafe;color:#2563eb}
+  /* 简历课程标签 */
+  .edu-courses{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+  .edu-courses-lb{font-size:12px;color:var(--muted);display:inline-flex;align-items:center;gap:3px;margin-bottom:4px}
+  .edu-course-tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11.5px;background:var(--soft2);color:var(--text);margin:2px 3px 2px 0}
   .course-unbound-tip{background:var(--accent-light);border:1px solid #bfdbfe;border-radius:10px;padding:10px 14px;font-size:12.5px;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px}
 
   /* ============ 简历生成 ============ */
@@ -638,7 +690,10 @@
   .iv-start-card h3{font-size:18px;font-weight:700;margin-bottom:8px}
   .iv-start-card p{font-size:13px;color:var(--muted);margin-bottom:6px;line-height:1.6}
   .iv-start-card .btn{margin-top:16px}
-  .iv-progress{height:4px;background:var(--soft2);border-radius:2px;margin-bottom:16px;overflow:hidden}
+  .iv-progress{height:4px;background:var(--soft2);border-radius:2px;margin-bottom:16px;overflow:hidden;flex:1}
+  .iv-top-bar{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+  .iv-exit-btn{flex:0 0 auto;display:flex;align-items:center;gap:4px;padding:6px 14px;border-radius:8px;border:1.5px solid #fecaca;color:#dc2626;background:#fff;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s}
+  .iv-exit-btn:hover{background:#fef2f2;border-color:#dc2626}
   .iv-progress-bar{height:100%;width:0;background:var(--accent-grad);border-radius:2px;transition:width .4s ease}
   .iv-messages{display:flex;flex-direction:column;gap:14px;margin-bottom:16px;max-height:420px;overflow-y:auto;padding:4px}
   .iv-messages::-webkit-scrollbar{width:5px}
@@ -668,6 +723,92 @@
   .iv-result .iv-feedback-item .q{font-size:13px;font-weight:600;margin-bottom:4px}
   .iv-result .iv-feedback-item .fb{font-size:12.5px;color:var(--muted);line-height:1.6}
   .iv-result .iv-feedback-item .sc{font-size:12px;font-weight:700;margin-top:4px}
+  /* 视频面试 */
+  .iv-video-area{display:flex;gap:14px;margin-bottom:16px}
+  .iv-interviewer-box{flex:1;background:#1e293b;border-radius:12px;padding:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative;overflow:hidden;min-height:200px}
+  .iv-interviewer-av{width:72px;height:72px;border-radius:50%;background:var(--accent-grad);display:flex;align-items:center;justify-content:center;color:#fff;transition:transform .3s}
+  .iv-interviewer-av.speaking{animation:ivPulse 1s ease-in-out infinite}
+  @keyframes ivPulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(37,99,235,.4)}50%{transform:scale(1.05);box-shadow:0 0 0 12px rgba(37,99,235,0)}}
+  .iv-interviewer-info{text-align:center;color:#fff}
+  .iv-int-name{font-size:15px;font-weight:700}
+  .iv-int-status{font-size:12px;color:#94a3b8;margin-top:2px}
+  .iv-wave{display:flex;gap:3px;align-items:center;height:24px}
+  .iv-wave .bar{width:3px;height:4px;background:#2563eb;border-radius:2px;transition:height .15s}
+  .iv-wave.speaking .bar{animation:ivWave .6s ease-in-out infinite}
+  .iv-wave.speaking .bar:nth-child(2){animation-delay:.1s}
+  .iv-wave.speaking .bar:nth-child(3){animation-delay:.2s}
+  .iv-wave.speaking .bar:nth-child(4){animation-delay:.3s}
+  .iv-wave.speaking .bar:nth-child(5){animation-delay:.15s}
+  @keyframes ivWave{0%,100%{height:4px}50%{height:20px}}
+  .iv-candidate-box{flex:0 0 200px;position:relative;border-radius:12px;overflow:hidden;background:#0f172a;min-height:200px;border:2px solid var(--line)}
+  .iv-candidate-box video{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+  .iv-cam-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#64748b;font-size:12px}
+  .iv-cam-label{position:absolute;top:8px;left:8px;background:rgba(0,0,0,.6);color:#fff;font-size:11px;padding:2px 8px;border-radius:4px}
+  .iv-rec-indicator{position:absolute;top:8px;right:8px;background:rgba(220,38,38,.9);color:#fff;font-size:11px;padding:2px 8px;border-radius:4px;display:flex;align-items:center;gap:4px}
+  .iv-rec-dot{width:6px;height:6px;border-radius:50%;background:#fff;animation:ivBlink 1s ease-in-out infinite}
+  @keyframes ivBlink{0%,100%{opacity:1}50%{opacity:.3}}
+  .iv-mic{width:42px;height:42px;border-radius:10px;background:#fff;border:1.5px solid var(--line);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;flex:0 0 42px;transition:all .15s}
+  .iv-mic:hover{border-color:var(--accent);color:var(--accent)}
+  .iv-mic.recording{background:#ef4444;border-color:#ef4444;color:#fff;animation:ivMicPulse 1.5s ease-in-out infinite}
+  @keyframes ivMicPulse{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.4)}50%{box-shadow:0 0 0 8px rgba(239,68,68,0)}}
+  /* 多维评分雷达 */
+  .iv-dim-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px}
+  .iv-dim-card{padding:12px 14px;border:1px solid var(--line);border-radius:8px}
+  .iv-dim-card .dim-head{display:flex;align-items:center;gap:6px;margin-bottom:6px}
+  .iv-dim-card .dim-name{font-size:13px;font-weight:600}
+  .iv-dim-card .dim-score{font-size:18px;font-weight:700;margin-left:auto}
+  .iv-dim-bar{height:4px;border-radius:2px;background:var(--soft2);overflow:hidden}
+  .iv-dim-bar i{display:block;height:100%;border-radius:2px;transition:width .6s ease}
+  .iv-dim-card .dim-fb{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.5}
+  /* 面试 Tab */
+  .iv-tabs{display:flex;gap:0;border-bottom:2px solid var(--line);margin-bottom:20px}
+  .iv-tab{padding:10px 20px;border:none;background:transparent;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer;display:flex;align-items:center;gap:6px;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .15s}
+  .iv-tab:hover{color:var(--text)}
+  .iv-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+  .iv-tab-panel{display:none}
+  .iv-tab-panel.active{display:block;animation:fadeIn .25s}
+  .iv-tab-badge{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;padding:0 6px;border-radius:10px;font-size:11px;font-weight:700;background:var(--soft2);color:var(--muted)}
+  .iv-tab.active .iv-tab-badge{background:var(--accent-light);color:var(--accent)}
+  /* 面试历史 */
+  .iv-hist-container{display:flex;flex-direction:column;gap:16px}
+  .iv-hist-empty{text-align:center;padding:60px 20px;color:var(--muted)}
+  .iv-hist-empty .ic{width:72px;height:72px;border-radius:50%;background:var(--soft);display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+  .iv-hist-empty .tt{font-size:16px;font-weight:600;color:var(--text);margin-bottom:6px}
+  .iv-hist-empty .sub{font-size:13px;line-height:1.6}
+  .iv-hist-card{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);transition:border-color .15s}
+  .iv-hist-card:hover{border-color:var(--accent)}
+  .iv-hist-head{display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid var(--line)}
+  .iv-hist-score-ring{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;flex:0 0 52px}
+  .iv-hist-score-ring.high{background:#dcfce7;color:#16a34a}
+  .iv-hist-score-ring.mid{background:#fef3c7;color:#d97706}
+  .iv-hist-score-ring.low{background:#fee2e2;color:#dc2626}
+  .iv-hist-head .info{flex:1;min-width:0}
+  .iv-hist-head .info .career{font-size:15px;font-weight:700}
+  .iv-hist-head .info .meta{font-size:12px;color:var(--muted);margin-top:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .iv-hist-head .info .meta .tag{font-size:11px;padding:2px 8px;border-radius:4px;font-weight:500}
+  .iv-hist-head .info .meta .tag.video{background:#dbeafe;color:#2563eb}
+  .iv-hist-head .info .meta .tag.text{background:var(--soft2);color:var(--muted)}
+  .iv-hist-head .info .meta .tag.early{background:#fef3c7;color:#d97706}
+  .iv-hist-head .del{width:32px;height:32px;border-radius:8px;border:none;background:transparent;color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
+  .iv-hist-head .del:hover{background:#fef2f2;color:#dc2626}
+  .iv-hist-body{padding:16px 20px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .iv-hist-section h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;display:flex;align-items:center;gap:5px}
+  .iv-hist-section.strengths h4{color:#16a34a}
+  .iv-hist-section.weaknesses h4{color:#dc2626}
+  .iv-hist-section ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px}
+  .iv-hist-section li{font-size:13px;line-height:1.6;padding:8px 10px 8px 30px;border-radius:6px;position:relative}
+  .iv-hist-section.strengths li{background:#f0fdf4;color:#15803d}
+  .iv-hist-section.weaknesses li{background:#fef2f2;color:#b91c1c}
+  .iv-hist-section li::before{position:absolute;left:10px;top:8px}
+  .iv-hist-section.strengths li::before{content:'✓';font-weight:700}
+  .iv-hist-section.weaknesses li::before{content:'✗';font-weight:700}
+  .iv-hist-dims{padding:12px 20px;border-top:1px solid var(--line);display:flex;gap:10px;flex-wrap:wrap}
+  .iv-hist-dim{display:flex;align-items:center;gap:4px;font-size:12px;padding:4px 10px;border-radius:6px;background:var(--soft)}
+  .iv-hist-dim .nm{color:var(--muted)}
+  .iv-hist-dim .vl{font-weight:700}
+  .iv-hist-dim .vl.high{color:#16a34a}
+  .iv-hist-dim .vl.mid{color:#d97706}
+  .iv-hist-dim .vl.low{color:#dc2626}
   /* 行情分析 */
   .mk-toolbar{display:flex;align-items:center;gap:10px;margin-bottom:var(--space-md)}
   .mk-select{padding:8px 14px;border:1px solid var(--line);border-radius:8px;font-size:14px;outline:none;cursor:pointer;background:#fff}
@@ -750,7 +891,7 @@
   .fm-new-box .field textarea{resize:vertical;min-height:80px}
   .fm-new-box .actions{display:flex;gap:10px;justify-content:flex-end;margin-top:16px}
   /* 性格测试 */
-  .ts-container{max-width:640px;margin:0 auto}
+  .ts-container{max-width:960px;margin:0 auto}
   .ts-start-card{text-align:center;padding:40px 30px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
   .ts-start-ic{width:64px;height:64px;border-radius:16px;background:var(--accent-grad);color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
   .ts-start-card h3{font-size:18px;font-weight:700;margin-bottom:8px}
@@ -776,6 +917,45 @@
   .ts-rec-item .info .name{font-size:15px;font-weight:600}
   .ts-rec-item .info .reason{font-size:12px;color:var(--muted);margin-top:2px}
   .ts-rec-item .match{font-size:18px;font-weight:700;color:var(--accent)}
+  .ts-rec-item .ts-match-dims{font-size:11px;color:var(--accent);margin-top:4px;display:flex;align-items:center;gap:3px}
+  /* 测试结果页 */
+  .ts-result-top{display:flex;gap:24px;align-items:center;margin-bottom:24px;padding:20px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+  .ts-radar-area{flex:0 0 280px}
+  .ts-radar-area canvas{max-width:100%}
+  .ts-profile{flex:1}
+  .ts-profile-label{font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+  .ts-profile-type{font-size:24px;font-weight:700;color:var(--accent);margin:6px 0 10px}
+  .ts-profile-desc{font-size:13px;color:var(--text);line-height:1.6}
+  .ts-profile-tags{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+  .ts-profile-tag{font-size:12px;padding:4px 10px;border-radius:6px;background:var(--accent-light);color:var(--accent);font-weight:600;display:flex;align-items:center;gap:3px}
+  .ts-section-title{font-size:14px;font-weight:700;margin:20px 0 12px;padding-left:10px;border-left:3px solid var(--accent)}
+  .ts-dims-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
+  .ts-rec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:8px}
+  .ts-rec-card{position:relative;padding:20px 16px 16px;border:1px solid var(--line);border-radius:12px;cursor:pointer;transition:all .15s;text-align:center;background:#fff}
+  .ts-rec-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow)}
+  .ts-rec-rank{position:absolute;top:-12px;left:50%;transform:translateX(-50%);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;border:3px solid #fff}
+  .ts-rec-rank.r1{background:#fde68a;color:#92400e}
+  .ts-rec-rank.r2{background:#e0e7ff;color:#3730a3}
+  .ts-rec-rank.r3{background:#f1f5f9;color:#475569}
+  .ts-rec-pct{font-size:24px;font-weight:700;color:var(--accent);margin-bottom:6px}
+  .ts-rec-name{font-size:15px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:8px}
+  .ts-rec-reason{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:8px}
+  .ts-rec-card .ts-match-dims{font-size:11px;color:var(--accent);display:flex;align-items:center;justify-content:center;gap:3px}
+  .ts-dim-row{padding:12px 14px;border:1px solid var(--line);border-radius:8px}
+  .ts-dim-head{display:flex;align-items:center;gap:6px;margin-bottom:8px}
+  .ts-dim-icon{color:var(--muted);display:flex}
+  .ts-dim-name{font-size:13px;font-weight:600;flex:1}
+  .ts-dim-score{font-size:16px;font-weight:700}
+  .ts-dim-score.high{color:#16a34a}
+  .ts-dim-score.mid{color:#d97706}
+  .ts-dim-score.low{color:#64748b}
+  .ts-dim-bar{height:5px;border-radius:3px;background:var(--soft2);overflow:hidden}
+  .ts-dim-bar i{display:block;height:100%;border-radius:3px;transition:width .6s ease}
+  .ts-dim-bar i.high{background:#16a34a}
+  .ts-dim-bar i.mid{background:#d97706}
+  .ts-dim-bar i.low{background:#94a3b8}
+  .ts-q-back{float:right;font-size:12px;font-weight:500;color:var(--muted);cursor:pointer;display:flex;align-items:center;gap:3px;padding:2px 8px;border-radius:6px;transition:all .15s}
+  .ts-q-back:hover{color:var(--accent);background:var(--accent-light)}
   /* 每日一题 */
   .dq-card{display:flex;align-items:flex-start;gap:12px;padding:14px 18px;background:var(--accent-light);border:1px solid #bfdbfe;border-radius:var(--radius);margin-bottom:var(--space-md)}
   .dq-card .ic{width:32px;height:32px;border-radius:8px;background:var(--accent-grad);color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 32px}
@@ -811,6 +991,32 @@
   .ach-item.locked .ic{color:var(--muted)}
   .ach-item .nm{font-size:11px;font-weight:600;line-height:1.3}
   .ach-item .ds{font-size:10px;color:var(--muted);margin-top:2px;line-height:1.3}
+  .ach-item .ach-status{font-size:10px;margin-top:4px;font-weight:600;color:#16a34a;display:flex;align-items:center;justify-content:center;gap:2px}
+  .ach-item .ach-status.lock{color:var(--muted)}
+  /* 个人信息-成就入口 */
+  .pf-ach-entry{width:100%;margin-top:14px;padding:14px 16px;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:all .15s}
+  .pf-ach-entry:hover{border-color:var(--accent);background:var(--accent-light)}
+  .pf-ach-entry .pf-ach-left{display:flex;align-items:center;gap:12px}
+  .pf-ach-entry .pf-ach-ic{width:40px;height:40px;border-radius:10px;background:#fffbeb;display:flex;align-items:center;justify-content:center;color:#f59e0b}
+  .pf-ach-entry .pf-ach-tt{font-size:14px;font-weight:700;text-align:left}
+  .pf-ach-entry .pf-ach-sub{font-size:12px;color:var(--muted);text-align:left;margin-top:2px}
+  .pf-ach-entry .pf-ach-right{display:flex;align-items:center;gap:8px;color:var(--muted)}
+  .pf-ach-entry .pf-ach-count{font-size:13px;font-weight:700;color:var(--accent)}
+  /* 成就墙弹窗 */
+  .ach-modal-box{background:#fff;border-radius:16px;width:680px;max-width:92vw;max-height:85vh;display:flex;flex-direction:column;box-shadow:var(--shadow-lg);animation:modalIn .25s}
+  .ach-modal-head{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid var(--line);flex:0 0 auto}
+  .ach-modal-title{font-size:18px;font-weight:700;display:flex;align-items:center;gap:8px;color:#f59e0b}
+  .ach-modal-close{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--muted);cursor:pointer;transition:all .15s}
+  .ach-modal-close:hover{background:var(--soft);color:var(--text)}
+  .ach-modal-progress{padding:16px 24px;border-bottom:1px solid var(--line);flex:0 0 auto}
+  .ach-prog-info{display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:8px}
+  .ach-prog-bar{height:8px;border-radius:4px;background:var(--soft2);overflow:hidden}
+  .ach-prog-bar i{display:block;height:100%;background:linear-gradient(90deg,#f59e0b,#f97316);border-radius:4px;transition:width .6s ease}
+  .ach-modal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:20px 24px;overflow-y:auto}
+  .ach-modal-grid .ach-item{padding:16px 10px;text-align:center}
+  .ach-modal-grid .ach-item .ic{width:40px;height:40px;margin-bottom:8px}
+  .ach-modal-grid .ach-item .nm{font-size:13px}
+  .ach-modal-grid .ach-item .ds{font-size:11px}
   /* 职业对比 */
   .cmp-bar{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-lg);padding:10px 16px;display:none;align-items:center;gap:10px;z-index:40}
   .cmp-bar.show{display:flex}
@@ -912,6 +1118,22 @@
     .career-rec-grid{grid-template-columns:1fr !important}
     .mk-grid2,.mk-grid3{grid-template-columns:1fr}
     .ach-grid{grid-template-columns:repeat(3,1fr)}
+    .tt-table{font-size:11px}
+    .tt-slot-label{padding:4px 2px}
+    .tt-slot-name{font-size:11px}
+    .tt-slot-time{font-size:9px}
+    .tt-course-name{font-size:11px}
+    .tt-course-meta{display:none}
+    .tt-course-tag{font-size:8px}
+    .iv-video-area{flex-direction:column}
+    .iv-candidate-box{flex:0 0 160px;min-height:160px}
+    .iv-dim-grid{grid-template-columns:1fr}
+    .iv-hist-body{grid-template-columns:1fr}
+    .ach-modal-grid{grid-template-columns:repeat(2,1fr)}
+    .ts-result-top{flex-direction:column;text-align:center}
+    .ts-radar-area{flex:0 0 auto}
+    .ts-dims-grid{grid-template-columns:1fr!important}
+    .ts-rec-grid{grid-template-columns:1fr!important}
     #careerPick .cp-body{flex-direction:column}
     #careerPick .cp-grid-area{padding:20px 16px}
     .cp-career-grid{grid-template-columns:1fr!important}
@@ -1170,27 +1392,67 @@
       <div class="p-head">
         <div class="crumb">工作台 / AI 模拟面试</div>
         <h1>AI 模拟面试</h1>
-        <p>基于你的目标岗位，AI 将模拟真实面试场景，提出针对性问题并给出评分反馈</p>
+        <p>开启摄像头，AI 面试官将从题库抽题语音提问，你的回答将被识别并评估</p>
       </div>
+      <div class="iv-tabs">
+        <button class="iv-tab active" data-ivtab="practice"><i data-lucide="video" style="width:15px;height:15px"></i> 模拟面试</button>
+        <button class="iv-tab" data-ivtab="history"><i data-lucide="history" style="width:15px;height:15px"></i> 面试历史 <span class="iv-tab-badge" id="ivHistBadge">0</span></button>
+      </div>
+      <div class="iv-tab-panel active" id="ivPanelPractice">
       <div class="iv-container">
+        <!-- 开始页 -->
         <div class="iv-start" id="ivStart">
           <div class="iv-start-card">
             <div class="iv-start-ic"><i data-lucide="video" style="width:32px;height:32px"></i></div>
             <h3>准备就绪？</h3>
             <p>目标岗位：<b id="ivCareer" style="color:var(--accent)">—</b></p>
             <p>面试将包含 5 道题，覆盖自我介绍、专业技能、项目经历、行为面试和反问环节</p>
-            <button class="btn btn-primary" id="ivStartBtn"><i data-lucide="play" style="width:16px;height:16px;display:inline;vertical-align:-2px;margin-right:4px"></i> 开始模拟面试</button>
+            <p style="font-size:12px;color:var(--muted);margin-top:8px">建议使用 Chrome 浏览器，允许摄像头和麦克风权限以获得完整体验</p>
+            <div style="display:flex;gap:10px;justify-content:center;margin-top:16px">
+              <button class="btn btn-ghost" id="ivStartTextBtn"><i data-lucide="keyboard" style="width:16px;height:16px;display:inline;vertical-align:-2px;margin-right:4px"></i> 文字模式</button>
+              <button class="btn btn-primary" id="ivStartBtn"><i data-lucide="video" style="width:16px;height:16px;display:inline;vertical-align:-2px;margin-right:4px"></i> 视频面试</button>
+            </div>
           </div>
         </div>
+        <!-- 面试进行中 -->
         <div class="iv-chat" id="ivChat" style="display:none">
-          <div class="iv-progress"><div class="iv-progress-bar" id="ivProgress"></div></div>
+          <div class="iv-top-bar">
+            <div class="iv-progress"><div class="iv-progress-bar" id="ivProgress"></div></div>
+            <button class="iv-exit-btn" id="ivExitBtn" title="结束并退出面试"><i data-lucide="log-out" style="width:15px;height:15px"></i> 结束面试</button>
+          </div>
+          <!-- 视频通话区 -->
+          <div class="iv-video-area" id="ivVideoArea" style="display:none">
+            <div class="iv-interviewer-box">
+              <div class="iv-interviewer-av" id="ivIntAv"><i data-lucide="user-circle" style="width:48px;height:48px"></i></div>
+              <div class="iv-interviewer-info">
+                <div class="iv-int-name">AI 面试官</div>
+                <div class="iv-int-status" id="ivIntStatus">准备中...</div>
+              </div>
+              <div class="iv-wave" id="ivWave"></div>
+            </div>
+            <div class="iv-candidate-box">
+              <video id="ivVideo" autoplay muted playsinline></video>
+              <div class="iv-cam-placeholder" id="ivCamPlaceholder"><i data-lucide="camera-off" style="width:32px;height:32px"></i><span>摄像头未开启</span></div>
+              <div class="iv-cam-label">你</div>
+              <div class="iv-rec-indicator" id="ivRecIndicator" style="display:none"><span class="iv-rec-dot"></span> 录制中</div>
+            </div>
+          </div>
+          <!-- 消息区 -->
           <div class="iv-messages" id="ivMessages"></div>
+          <!-- 输入区 -->
           <div class="iv-input-row" id="ivInputRow">
-            <textarea id="ivInput" placeholder="输入你的回答..." rows="2"></textarea>
+            <textarea id="ivInput" placeholder="输入你的回答，或点击麦克风语音回答..." rows="2"></textarea>
+            <button class="iv-mic" id="ivMic" title="语音输入"><i data-lucide="mic" style="width:18px;height:18px"></i></button>
             <button class="iv-send" id="ivSend"><i data-lucide="send" style="width:18px;height:18px"></i></button>
           </div>
         </div>
+        <!-- 结果页 -->
         <div class="iv-result" id="ivResult" style="display:none"></div>
+      </div>
+      </div><!-- /ivPanelPractice -->
+      <!-- 面试历史面板 -->
+      <div class="iv-tab-panel" id="ivPanelHistory">
+        <div class="iv-hist-container" id="ivHistContainer"></div>
       </div>
     </section>
 
@@ -1303,6 +1565,10 @@
 <div class="fm-new-modal" id="fmNewModal"><div class="fm-new-box" id="fmNewBox"></div></div>
 <!-- 薪资谈判弹窗 -->
 <div class="sn-modal" id="snModal"><div class="sn-box" id="snBox"></div></div>
+<!-- 成就墙弹窗 -->
+<div class="pf-modal" id="achModal">
+  <div class="ach-modal-box" id="achBox"></div>
+</div>
 <!-- 成就通知 -->
 <div class="ach-toast" id="achToast"></div>
 <!-- 职业对比浮栏 -->
@@ -2030,22 +2296,24 @@ function openProfileModal(){
       '<div class="pf-section-title">基本信息</div>'+
       '<div class="pf-info">'+itemsHtml(leftItems)+itemsHtml(rightItems)+'</div>'+
       '<div class="pf-actions">'+actionsHtml+'</div>'+
-      '<div class="pf-section-title" style="margin-top:20px">成就墙 <span style="color:var(--muted);font-weight:400;text-transform:none;margin-left:6px">'+Object.keys(_achievements).filter(function(k){return _achievements[k];}).length+'/'+Object.keys(_achievements).length+'</span></div>'+
-      '<div class="ach-grid">'+
-        (typeof ACHIEVEMENTS!=='undefined'?ACHIEVEMENTS:[]).map(function(a){
-          var unlocked=_achievements[a.id];
-          return '<div class="ach-item '+(unlocked?'unlocked':'locked')+'">'+
-            '<div class="ic">'+lic(a.icon,24)+'</div>'+
-            '<div class="nm">'+a.name+'</div>'+
-            '<div class="ds">'+a.desc+'</div>'+
-          '</div>';
-        }).join('')+
-      '</div>'+
+      '<button class="pf-ach-entry" id="pfAchEntry">'+
+        '<div class="pf-ach-left">'+
+          '<div class="pf-ach-ic">'+lic('trophy',20)+'</div>'+
+          '<div><div class="pf-ach-tt">成就墙</div><div class="pf-ach-sub">查看已解锁的成就和勋章</div></div>'+
+        '</div>'+
+        '<div class="pf-ach-right">'+
+          '<span class="pf-ach-count">'+Object.keys(_achievements).filter(function(k){return _achievements[k];}).length+' / '+Object.keys(_achievements).length+'</span>'+
+          lic('chevron-right',18)+'</div>'+
+      '</button>'+
     '</div>';
   $('pfModal').classList.add('show');
   refreshIcons();
   // 绑定按钮事件
   $('pfCloseBtn').addEventListener('click',closeProfileModal);
+  $('pfAchEntry').addEventListener('click',function(){
+    closeProfileModal();
+    setTimeout(openAchievementModal,200);
+  });
   $('pfLogout').addEventListener('click',function(){
     closeProfileModal();
     confirmDialog('退出登录','退出后将返回引导页，需要重新选择院校与专业。确定退出吗？',function(){
@@ -2068,6 +2336,35 @@ function openProfileModal(){
 }
 function closeProfileModal(){
   $('pfModal').classList.remove('show');
+}
+/* ---------- 成就墙弹窗 ---------- */
+function openAchievementModal(){
+  var unlockedCount=Object.keys(_achievements).filter(function(k){return _achievements[k];}).length;
+  var totalCount=Object.keys(_achievements).length;
+  var percent=Math.round(unlockedCount/totalCount*100);
+  var achHtml=(typeof ACHIEVEMENTS!=='undefined'?ACHIEVEMENTS:[]).map(function(a){
+    var unlocked=_achievements[a.id];
+    return '<div class="ach-item '+(unlocked?'unlocked':'locked')+'">'+
+      '<div class="ic">'+lic(a.icon,28)+'</div>'+
+      '<div class="nm">'+a.name+'</div>'+
+      '<div class="ds">'+a.desc+'</div>'+
+      (unlocked?'<div class="ach-status">'+lic('check-circle-2',12)+' 已解锁</div>':'<div class="ach-status lock">'+lic('lock',12)+' 未解锁</div>')+
+    '</div>';
+  }).join('');
+  $('achBox').innerHTML=
+    '<div class="ach-modal-head">'+
+      '<div class="ach-modal-title">'+lic('trophy',20)+' 成就墙</div>'+
+      '<div class="ach-modal-close" id="achCloseBtn">'+lic('x',18)+'</div>'+
+    '</div>'+
+    '<div class="ach-modal-progress">'+
+      '<div class="ach-prog-info"><span>已解锁 '+unlockedCount+' / '+totalCount+' 个成就</span><span>'+percent+'%</span></div>'+
+      '<div class="ach-prog-bar"><i style="width:'+percent+'%"></i></div>'+
+    '</div>'+
+    '<div class="ach-modal-grid">'+achHtml+'</div>';
+  $('achModal').classList.add('show');
+  refreshIcons();
+  $('achCloseBtn').addEventListener('click',function(){$('achModal').classList.remove('show');});
+  $('achModal').addEventListener('click',function(e){if(e.target===$('achModal'))$('achModal').classList.remove('show');});
 }
 /* ---------- 确认弹窗 ---------- */
 function confirmDialog(title,desc,onConfirm,isDanger){
@@ -2213,6 +2510,7 @@ function cpConfirmCareer(){
   renderLibrary();
   renderDailyQuestion();
   initAchievements();
+  loadMyCourses();
   refreshIcons();
   $('ivCareer').textContent=_cpSelected;
   toast('欢迎进入学途职引，'+displayName+'！','ok');
@@ -2243,6 +2541,17 @@ function switchPanel(name){
   if(name==='forum'){renderForumInit();}
   if(name==='test'){/* test is self-contained */}
   if(name==='interview'){$('ivCareer').textContent=STATE.career||'—';}
+  // 离开面试面板时暂停摄像头和语音
+  if(name!=='interview'&&_ivState.active){
+    ivPauseMic();
+    try{if(window.speechSynthesis)window.speechSynthesis.cancel();}catch(e){}
+    if($('ivIntStatus'))$('ivIntStatus').textContent='已暂停';
+  }
+  // 回到面试面板时恢复
+  if(name==='interview'&&_ivState.active&&_ivState.recording){
+    ivResumeMic();
+    if($('ivIntStatus'))$('ivIntStatus').textContent='等待你的回答...';
+  }
   if(name==='library'){renderLibrary();}
   $('main').scrollTop=0;
 }
@@ -2466,37 +2775,6 @@ function renderPlanResult(courses,major,career,grade){
     doneCourses=[];missCourses=courses.filter(function(c){return c.importance==='核心'||c.importance==='推荐';});optCourses=courses.filter(function(c){return c.importance==='可选';});
     html+='<div class="course-unbound-tip">'+lic('lightbulb',14)+' 绑定教务系统后，可获得基于已修课程的个性化分析（已修/待补/拓展三段式展示）</div>';
   }
-  // 课程表格
-  html+='<table class="courses"><thead><tr>'+
-    '<th>课程名称</th><th>开课学院</th><th>关联技能</th><th>推荐学期</th><th>重要程度</th><th>修读状态</th><th style="text-align:right">操作</th>'+
-    '</tr></thead><tbody>';
-  if(!courses.length){html+='</tbody></table><div class="loading-box">暂无该职业的课程数据</div>';}
-  else{
-    courses.forEach(function(c,i){
-      var skillsHtml=c.skills.map(function(s){return '<span class="tag tag-blue">'+s+'</span>';}).join('');
-      // 三态判断
-      var done=isCourseDone(c);
-      var selected=isCourseSelected(c,career);
-      var statusTag,actionHtml,rowCls='';
-      if(done){
-        statusTag='<span class="course-status-tag done">'+lic('check',12)+' 已修读</span>';
-        actionHtml='<span class="course-action-done">'+lic('lock',12)+'</span>';
-        rowCls='course-row-done';
-      }else if(selected){
-        statusTag='<span class="course-status-tag selected">'+lic('book-open',12)+' 已选</span>';
-        actionHtml='<button class="drop-btn" data-i="'+i+'">'+lic('x',12)+' 退选</button>';
-        rowCls='course-row-selected';
-      }else{
-        statusTag='<span class="course-status-tag miss">'+lic('circle-dashed',12)+' 未选</span>';
-        actionHtml='<button class="add-btn" data-i="'+i+'">加入</button>';
-      }
-      html+='<tr class="'+rowCls+'" data-idx="'+i+'"><td class="course-name">'+c.name+'</td><td>'+c.college+'</td>'+
-        '<td><div class="skills-cell">'+skillsHtml+'</div></td><td>'+c.semester+'</td>'+
-        '<td>'+impTag(c.importance)+'</td><td>'+statusTag+'</td>'+
-        '<td style="text-align:right">'+actionHtml+'</td></tr>';
-    });
-    html+='</tbody></table>';
-  }
   // 统计卡片（基于实际匹配计算）
   var totalSkills={};courses.forEach(function(c){c.skills.forEach(function(s){totalSkills[s]=1;});});
   var skillCount=Object.keys(totalSkills).length;
@@ -2516,11 +2794,64 @@ function renderPlanResult(courses,major,career,grade){
     '<div class="stat-card"><div class="lb">技能覆盖率</div><div class="vl" id="statCover">0<span class="unit">%</span></div><div class="mini-bar"><i id="coverBar"></i></div></div>'+
     '<div class="stat-card"><div class="lb">推荐课程总数</div><div class="vl" id="statTotal">0<span class="unit">门</span></div></div>'+
     '<div class="stat-card"><div class="lb">核心课程</div><div class="vl" id="statCore">0<span class="unit">门</span></div></div></div>';
-  // 课表视图
-  var scheduleHtml=renderSchedule(courses,career);
-  html+=scheduleHtml;
   html+='</div>'; // 关闭滚动容器
+  // Tab 切换栏
+  var mySelectedCount=myCourses.filter(function(mc){return mc.career===career;}).length;
+  var myDoneCount=(STATE.eduBound&&STATE.student&&STATE.student.courses)?STATE.student.courses.length:0;
+  html+='<div class="course-tabs" id="courseTabs">'+
+    '<button class="course-tab active" data-tab="recommend">'+lic('list',14)+' 课程推荐</button>'+
+    '<button class="course-tab" data-tab="schedule">'+lic('calendar-days',14)+' 我的课表<span class="ct-badge">'+(mySelectedCount+myDoneCount)+'</span></button>'+
+  '</div>';
+  // 课程推荐视图
+  html+='<div class="course-tab-panel active" id="ctPanelRecommend"></div>';
+  // 课表视图
+  html+='<div class="course-tab-panel" id="ctPanelSchedule"></div>';
   var box=$('planResult');box.innerHTML=html;
+  // 填充课程推荐面板（复用已构建的表格HTML）
+  var recommendHtml='';
+  if(!courses.length){recommendHtml='<div class="loading-box">暂无该职业的课程数据</div>';}
+  else{
+    recommendHtml='<table class="courses"><thead><tr>'+
+      '<th>课程名称</th><th>开课学院</th><th>关联技能</th><th>推荐学期</th><th>重要程度</th><th>修读状态</th><th style="text-align:right">操作</th>'+
+      '</tr></thead><tbody>';
+    courses.forEach(function(c,i){
+      var skillsHtml=c.skills.map(function(s){return '<span class="tag tag-blue">'+s+'</span>';}).join('');
+      var done=isCourseDone(c);
+      var selected=isCourseSelected(c,career);
+      var statusTag,actionHtml,rowCls='';
+      if(done){
+        statusTag='<span class="course-status-tag done">'+lic('check',12)+' 已修读</span>';
+        actionHtml='<span class="course-action-done">'+lic('lock',12)+'</span>';
+        rowCls='course-row-done';
+      }else if(selected){
+        statusTag='<span class="course-status-tag selected">'+lic('book-open',12)+' 已选</span>';
+        actionHtml='<button class="drop-btn" data-i="'+i+'">'+lic('x',12)+' 退选</button>';
+        rowCls='course-row-selected';
+      }else{
+        statusTag='<span class="course-status-tag miss">'+lic('circle-dashed',12)+' 未选</span>';
+        actionHtml='<button class="add-btn" data-i="'+i+'">加入</button>';
+      }
+      recommendHtml+='<tr class="'+rowCls+'" data-idx="'+i+'"><td class="course-name">'+c.name+'</td><td>'+c.college+'</td>'+
+        '<td><div class="skills-cell">'+skillsHtml+'</div></td><td>'+c.semester+'</td>'+
+        '<td>'+impTag(c.importance)+'</td><td>'+statusTag+'</td>'+
+        '<td style="text-align:right">'+actionHtml+'</td></tr>';
+    });
+    recommendHtml+='</tbody></table>';
+  }
+  $('ctPanelRecommend').innerHTML=recommendHtml;
+  // 填充课表面板
+  $('ctPanelSchedule').innerHTML=renderSchedule(courses,career);
+  // Tab 切换
+  box.querySelectorAll('.course-tab').forEach(function(tab){
+    tab.addEventListener('click',function(){
+      var t=this.getAttribute('data-tab');
+      box.querySelectorAll('.course-tab').forEach(function(b){b.classList.remove('active');});
+      this.classList.add('active');
+      box.querySelectorAll('.course-tab-panel').forEach(function(p){p.classList.remove('active');});
+      if(t==='recommend')$('ctPanelRecommend').classList.add('active');
+      else $('ctPanelSchedule').classList.add('active');
+    });
+  });
   if(courses.length){
     countUp($('statCover'),cover,'%');countUp($('statTotal'),courses.length);
     var coreCount=courses.filter(function(c){return c.importance==='核心';}).length;
@@ -2528,7 +2859,7 @@ function renderPlanResult(courses,major,career,grade){
     setTimeout(function(){$('coverBar').style.width=cover+'%';},80);
     try{localStorage.setItem('planResult',JSON.stringify({major:major,career:career,grade:grade,courses:courses,cover:cover,time:nowTime()}));}catch(e){}
     // 加入按钮
-    box.querySelectorAll('.add-btn').forEach(function(btn){
+    $('ctPanelRecommend').querySelectorAll('.add-btn').forEach(function(btn){
       btn.addEventListener('click',function(){
         var idx=+this.getAttribute('data-i');
         var c=courses[idx];
@@ -2538,7 +2869,7 @@ function renderPlanResult(courses,major,career,grade){
       });
     });
     // 退选按钮
-    box.querySelectorAll('.drop-btn').forEach(function(btn){
+    $('ctPanelRecommend').querySelectorAll('.drop-btn').forEach(function(btn){
       btn.addEventListener('click',function(){
         var idx=+this.getAttribute('data-i');
         var c=courses[idx];
@@ -2555,13 +2886,11 @@ function renderPlanResult(courses,major,career,grade){
 function renderSchedule(courses,career){
   // 收集所有已修读+已选课程
   var allMyCourses=[];
-  // 已修读（教务系统）
   if(STATE.eduBound&&STATE.student&&STATE.student.courses){
     STATE.student.courses.forEach(function(c){
       allMyCourses.push({name:c.name,college:c.college||'—',semester:c.semester||'—',importance:'—',status:'completed'});
     });
   }
-  // 已选课程（myCourses中当前职业的）
   myCourses.filter(function(mc){return mc.career===career;}).forEach(function(mc){
     if(!allMyCourses.some(function(a){return a.name===mc.name;})){
       allMyCourses.push({name:mc.name,college:mc.college,semester:mc.semester,importance:mc.importance,status:mc.status});
@@ -2584,36 +2913,93 @@ function renderSchedule(courses,career){
     return ia-ib;
   });
   var currentGrade=STATE.grade||'大三';
+  // 默认选中当前学期，如果没有则选第一个
+  var defaultSem=sortedSems.find(function(s){return s.indexOf(currentGrade)>=0;})||sortedSems[0];
+  var days=['周一','周二','周三','周四','周五'];
+  var slots=[
+    {label:'第1-2节',time:'08:00'},
+    {label:'第3-4节',time:'10:00'},
+    {label:'第5-6节',time:'14:00'},
+    {label:'第7-8节',time:'16:00'},
+    {label:'第9-10节',time:'19:00'}
+  ];
+  // 为课程分配时间槽（确定性算法）
+  function assignSlots(semCourses){
+    var grid={}; // key: day_slot
+    var dayIdx=0,slotIdx=0;
+    // 按重要程度排序：核心优先排
+    var sorted=semCourses.slice().sort(function(a,b){
+      var order={'核心':0,'推荐':1,'可选':2,'—':3};
+      return (order[a.importance]||3)-(order[b.importance]||3);
+    });
+    sorted.forEach(function(c){
+      // 找空位
+      var key=dayIdx+'_'+slotIdx;
+      while(grid[key]){
+        slotIdx++;
+        if(slotIdx>=slots.length){slotIdx=0;dayIdx++;}
+        if(dayIdx>=days.length){dayIdx=0;slotIdx=0;break;}
+        key=dayIdx+'_'+slotIdx;
+      }
+      grid[key]={course:c,day:dayIdx,slot:slotIdx};
+      // 下一门课换到下一天
+      dayIdx++;
+      if(dayIdx>=days.length){dayIdx=0;slotIdx++;}
+      if(slotIdx>=slots.length)slotIdx=0;
+    });
+    return grid;
+  }
+  // 构建学期选项
+  var semOptions=sortedSems.map(function(s){
+    var isCur=s.indexOf(currentGrade)>=0;
+    return '<option value="'+s+'"'+(s===defaultSem?' selected':'')+'>'+s+(isCur?'（本学期）':'')+'</option>';
+  }).join('');
   var html='<div class="schedule-section">'+
     '<div class="schedule-head">'+
       '<div class="schedule-title">'+lic('calendar-days',18)+' 我的课表</div>'+
       '<div class="schedule-stats"><span class="sc-stat">'+lic('check-circle-2',12)+' 已修读 '+allMyCourses.filter(function(c){return c.status==='completed';}).length+' 门</span><span class="sc-stat">'+lic('book-open',12)+' 修读中 '+allMyCourses.filter(function(c){return c.status==='selected';}).length+' 门</span></div>'+
     '</div>';
+  // 学期选择器
+  html+='<div class="tt-toolbar"><label>选择学期：</label><select class="tt-sem-select" id="ttSemSelect">'+semOptions+'</select></div>';
+  // 为每个学期预生成课表HTML（隐藏，切换时显示）
   sortedSems.forEach(function(sem){
-    var items=groups[sem];
-    var isCurrent=(sem.indexOf(currentGrade)>=0);
-    var isPast=semOrder.indexOf(sem)>=0&&semOrder.indexOf(sem)<semOrder.indexOf(currentGrade);
-    html+='<div class="schedule-semester'+(isCurrent?' current':'')+'">';
-    html+='<div class="sem-label">'+sem;
-    if(isCurrent)html+='<span class="sem-badge now">本学期</span>';
-    else if(isPast)html+='<span class="sem-badge past">已结束</span>';
-    html+='</div>';
-    html+='<div class="sem-courses">';
-    items.forEach(function(c){
-      var done=c.status==='completed';
-      html+='<div class="sched-course'+(done?' done':'')+'">';
-      html+='<div class="sc-status">'+lic(done?'check-circle-2':'book-open',14)+'</div>';
-      html+='<div class="sc-info"><div class="sc-name">'+c.name+'</div><div class="sc-meta">'+c.college+(c.importance!=='—'?' · '+c.importance:'')+'</div></div>';
-      if(done){
-        html+='<span class="sc-tag done">已修读</span>';
-      }else{
-        html+='<span class="sc-tag ongoing">修读中</span>';
-      }
-      html+='</div>';
+    var semCourses=groups[sem];
+    var grid=assignSlots(semCourses);
+    var isCurrent=sem===defaultSem;
+    html+='<div class="tt-grid-wrap'+(isCurrent?' show':'')+'" data-sem="'+sem+'">';
+    html+='<table class="tt-table"><thead><tr><th class="tt-corner"></th>';
+    days.forEach(function(d){html+='<th>'+d+'</th>';});
+    html+='</tr></thead><tbody>';
+    slots.forEach(function(s,rowIdx){
+      html+='<tr><td class="tt-slot-label"><div class="tt-slot-name">'+s.label+'</div><div class="tt-slot-time">'+s.time+'</div></td>';
+      days.forEach(function(d,colIdx){
+        var cell=grid[colIdx+'_'+rowIdx];
+        if(cell){
+          var c=cell.course;
+          var done=c.status==='completed';
+          html+='<td class="tt-cell'+(done?' done':' ongoing')+'"><div class="tt-course-name">'+c.name+'</div><div class="tt-course-meta">'+c.college+'</div>'+(done?'<span class="tt-course-tag done">已修</span>':'<span class="tt-course-tag ongoing">修读中</span>')+'</td>';
+        }else{
+          html+='<td class="tt-cell empty"></td>';
+        }
+      });
+      html+='</tr>';
     });
-    html+='</div></div>';
+    html+='</tbody></table>';
+    html+='</div>';
   });
   html+='</div>';
+  // 延迟绑定学期切换事件
+  setTimeout(function(){
+    var sel=document.getElementById('ttSemSelect');
+    if(sel){
+      sel.addEventListener('change',function(){
+        var val=this.value;
+        document.querySelectorAll('.tt-grid-wrap').forEach(function(w){
+          w.classList.toggle('show',w.getAttribute('data-sem')===val);
+        });
+      });
+    }
+  },50);
   return html;
 }
 
@@ -2648,7 +3034,11 @@ function renderResume(){
   var r=window.RESUME;var html='<div class="a4" id="a4">';
   html+='<div class="r-name">'+r.personal.name+'</div>';
   html+='<div class="r-meta"><span>'+lic('graduation-cap',14)+' '+r.education.major+'</span><span>'+lic('target',14)+' '+r.personal.career+'</span><span>'+lic('mail',14)+' '+r.personal.contact+'</span></div>';
-  html+='<div class="r-sec"><h4>教育背景</h4><div class="edu-line"><b>'+r.education.school+'</b> · '+r.education.major+' · '+r.education.degree+' <span style="float:right;color:#64748b">'+r.education.period+'</span><br>GPA：'+r.education.gpa+'</div></div>';
+  var eduExtra='';
+  if(r.education.courses&&r.education.courses.length>0){
+    eduExtra='<div class="edu-courses"><span class="edu-courses-lb">'+lic('book-open',12)+' 主修课程：</span>'+r.education.courses.map(function(c){return '<span class="edu-course-tag">'+c+'</span>';}).join('')+'</div>';
+  }
+  html+='<div class="r-sec"><h4>教育背景</h4><div class="edu-line"><b>'+r.education.school+'</b> · '+r.education.major+' · '+r.education.degree+' <span style="float:right;color:#64748b">'+r.education.period+'</span><br>GPA：'+r.education.gpa+'</div>'+eduExtra+'</div>';
   html+='<div class="r-sec"><h4>技能栈</h4><div class="r-skills">'+r.skills.map(function(s){return '<span class="tag tag-blue">'+s+'</span>';}).join('')+'</div></div>';
   html+='<div class="r-sec"><h4>项目经历</h4>';
   if(r.projects&&r.projects.length){r.projects.forEach(function(p){html+='<div class="r-entry"><div class="ttl">'+p.title+' · '+p.role+'<span class="date">'+p.date+'</span></div><div class="desc">'+p.desc+'</div></div>';});}
@@ -3305,7 +3695,7 @@ function qaRespond(q){
 }
 
 /* ---------- AI 模拟面试 ---------- */
-var _ivState={active:false,qIdx:0,answers:[],questions:[]};
+var _ivState={active:false,qIdx:0,answers:[],questions:[],mode:'text',cameraOn:false,stream:null,recognition:null,recording:false,answerStart:0,metrics:[]};
 var IV_QUESTIONS={
   'AI产品经理':['请做一个简短的自我介绍，重点说明你为什么适合AI产品经理这个岗位。','请描述一个你参与过的产品从0到1的过程，你在其中承担什么角色，遇到的最大挑战是什么？','如何评估一个AI模型是否适合落地到产品中？你会考虑哪些因素？','请举一个你在团队中推动跨部门协作的例子，结果如何？','你有什么问题想问我的吗？（反问环节）'],
   '数据分析师':['请做一个简短的自我介绍，重点说明你的数据分析经验。','请描述一个你通过数据分析发现业务洞察的案例，你的分析过程和最终结论是什么？','如何设计一个AB实验来验证某个功能改版的效果？需要关注哪些指标？','请举一个你在数据质量有问题的情况下，如何保证分析结论可靠性的例子。','你有什么问题想问我的吗？（反问环节）'],
@@ -3314,16 +3704,206 @@ var IV_QUESTIONS={
   '算法工程师':['请做一个简短的自我介绍，重点说明你的研究方向和项目经验。','请描述一个你从零开始训练的模型，包括数据准备、模型选型、训练过程和最终效果。','如何解决模型过拟合问题？请列举至少3种方法并说明原理。','请举一个你在论文复现或竞赛中遇到的最大困难，如何解决的？','你有什么问题想问我的吗？（反问环节）'],
   'default':['请做一个简短的自我介绍，重点说明你为什么适合这个岗位。','请描述一个你参与过的最有挑战性的项目，你的角色和贡献是什么？','你认为自己最大的优势和需要提升的地方分别是什么？','请举一个你在压力下完成任务的例子，你是如何应对的？','你有什么问题想问我的吗？（反问环节）']
 };
-function ivStartInterview(){
+function ivStartInterview(mode){
+  _ivState.mode=mode||'text';
   var career=STATE.career||'目标岗位';
   _ivState.questions=IV_QUESTIONS[career]||IV_QUESTIONS['default'];
-  _ivState.active=true;_ivState.qIdx=0;_ivState.answers=[];
+  _ivState.active=true;_ivState.qIdx=0;_ivState.answers=[];_ivState.metrics=[];
+  _ivState.recording=false;_ivState.recActive=false;_ivState.micPaused=false;_ivState.micDenied=false;
+  _ivState.earlyExit=false;
   $('ivStart').style.display='none';
   $('ivResult').style.display='none';
   $('ivChat').style.display='block';
   $('ivMessages').innerHTML='';
   $('ivProgress').style.width='0';
+  // 初始化波形
+  $('ivWave').innerHTML='<div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>';
+  if(_ivState.mode==='video'){
+    $('ivVideoArea').style.display='flex';
+    ivStartCamera();
+  }else{
+    $('ivVideoArea').style.display='none';
+  }
+  // 初始化语音识别
+  ivInitSpeech();
   ivAskQuestion();
+}
+function ivStartCamera(){
+  if(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia){
+    navigator.mediaDevices.getUserMedia({video:true,audio:false}).then(function(stream){
+      _ivState.stream=stream;
+      _ivState.cameraOn=true;
+      var video=$('ivVideo');
+      if(video){video.srcObject=stream;video.style.display='block';}
+      var ph=$('ivCamPlaceholder');if(ph)ph.style.display='none';
+      var ri=$('ivRecIndicator');if(ri)ri.style.display='flex';
+    }).catch(function(err){
+      toast('摄像头开启失败：'+(err.message||'权限被拒绝'),'err');
+      _ivState.cameraOn=false;
+    });
+  }else{
+    toast('当前浏览器不支持摄像头，已切换到文字模式','err');
+    _ivState.mode='text';
+    $('ivVideoArea').style.display='none';
+  }
+}
+function ivStopCamera(){
+  // 关闭摄像头视频流
+  if(_ivState.stream){
+    _ivState.stream.getTracks().forEach(function(t){t.stop();});
+    _ivState.stream=null;
+  }
+  _ivState.cameraOn=false;
+  var video=$('ivVideo');if(video){video.srcObject=null;video.style.display='none';}
+  var ph=$('ivCamPlaceholder');if(ph)ph.style.display='flex';
+  var ri=$('ivRecIndicator');if(ri)ri.style.display='none';
+}
+function ivStopAllMedia(){
+  // 彻底关闭所有媒体设备：摄像头 + 麦克风 + 语音合成
+  // 1. 关闭摄像头流
+  ivStopCamera();
+  // 2. 停止语音识别并释放麦克风
+  if(_ivState.recognition){
+    _ivState.recording=false;
+    _ivState.micPaused=true;
+    try{if(_ivState.recActive)_ivState.recognition.stop();}catch(e){}
+    _ivState.recActive=false;
+    // abort 比 stop 更彻底，会立即终止识别并释放麦克风
+    try{_ivState.recognition.abort();}catch(e){}
+  }
+  // 3. 停止语音合成
+  try{if(window.speechSynthesis)window.speechSynthesis.cancel();}catch(e){}
+  // 4. 恢复麦克风按钮 UI
+  var mic=$('ivMic');
+  if(mic){mic.classList.remove('recording');mic.innerHTML=lic('mic',18);}
+  refreshIcons();
+}
+function ivSpeak(text){
+  if(_ivState.mode!=='video')return;
+  if(!('speechSynthesis' in window)){return;}
+  try{
+    window.speechSynthesis.cancel();
+    var u=new SpeechSynthesisUtterance(text);
+    u.lang='zh-CN';u.rate=0.9;u.pitch=1;
+    var av=$('ivIntAv');var wave=$('ivWave');var st=$('ivIntStatus');
+    if(av)av.classList.add('speaking');
+    if(wave)wave.classList.add('speaking');
+    if(st)st.textContent='正在提问...';
+    u.onend=function(){
+      if(av)av.classList.remove('speaking');
+      if(wave)wave.classList.remove('speaking');
+      if(st)st.textContent='等待你的回答...';
+      _ivState.answerStart=Date.now();
+    };
+    u.onerror=function(){
+      if(av)av.classList.remove('speaking');
+      if(wave)wave.classList.remove('speaking');
+      if(st)st.textContent='等待你的回答...';
+      _ivState.answerStart=Date.now();
+    };
+    window.speechSynthesis.speak(u);
+  }catch(e){
+    _ivState.answerStart=Date.now();
+  }
+}
+function ivInitSpeech(){
+  var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR){return;}
+  try{
+    _ivState.recognition=new SR();
+    _ivState.recognition.lang='zh-CN';
+    _ivState.recognition.continuous=true;
+    _ivState.recognition.interimResults=true;
+    _ivState.recognition.onstart=function(){
+      _ivState.recActive=true;
+    };
+    _ivState.recognition.onresult=function(event){
+      var finalText='',interimText='';
+      for(var i=event.resultIndex;i<event.results.length;i++){
+        var tr=event.results[i];
+        if(tr.isFinal)finalText+=tr[0].transcript;
+        else interimText+=tr[0].transcript;
+      }
+      var inp=$('ivInput');
+      if(inp){inp.value=finalText+interimText;}
+    };
+    _ivState.recognition.onerror=function(event){
+      if(event.error==='not-allowed'){
+        toast('麦克风权限被拒绝，请使用文字输入','err');
+        ivStopMic();
+        _ivState.micDenied=true;
+      }else if(event.error==='no-speech'){
+        // 静默超时，忽略即可
+      }
+    };
+    _ivState.recognition.onend=function(){
+      _ivState.recActive=false;
+      // 仅在用户仍处于录制状态时自动重连
+      if(_ivState.recording&&!_ivState.micPaused){
+        setTimeout(function(){
+          if(_ivState.recording&&!_ivState.micPaused&&_ivState.recognition&&!_ivState.recActive){
+            try{_ivState.recognition.start();}catch(e){}
+          }
+        },200);
+      }
+    };
+  }catch(e){}
+}
+function ivToggleMic(){
+  if(!_ivState.recognition){
+    toast('当前浏览器不支持语音识别，请使用文字输入','err');
+    return;
+  }
+  if(_ivState.micDenied){
+    toast('麦克风权限已被拒绝，请刷新页面重试','err');
+    return;
+  }
+  if(_ivState.recording){
+    ivStopMic();
+  }else{
+    ivStartMic();
+  }
+}
+function ivStartMic(){
+  if(_ivState.recActive)return; // 已在运行，不重复启动
+  _ivState.micPaused=false;
+  _ivState.recording=true;
+  try{
+    _ivState.recognition.start();
+  }catch(e){
+    // 如果是因为已经启动导致的错误，仅更新状态
+    _ivState.recActive=true;
+  }
+  // 统一在 try/catch 之外更新 UI，确保一定执行
+  var mic=$('ivMic');
+  if(mic){mic.classList.add('recording');mic.innerHTML=lic('square',18);}
+  refreshIcons();
+  toast('语音识别已开启，请开始回答','');
+}
+function ivStopMic(){
+  _ivState.recording=false;
+  _ivState.micPaused=true;
+  try{if(_ivState.recognition&&_ivState.recActive)_ivState.recognition.stop();}catch(e){}
+  _ivState.recActive=false;
+  // 统一在 try/catch 之外更新 UI，确保按钮恢复为麦克风图标
+  var mic=$('ivMic');
+  if(mic){mic.classList.remove('recording');mic.innerHTML=lic('mic',18);}
+  refreshIcons();
+}
+function ivPauseMic(){
+  // 暂停语音识别（不改变 recording 状态，用于切换面板等场景）
+  _ivState.micPaused=true;
+  try{if(_ivState.recognition&&_ivState.recActive)_ivState.recognition.stop();}catch(e){}
+  _ivState.recActive=false;
+}
+function ivResumeMic(){
+  // 恢复语音识别
+  if(_ivState.recording&&_ivState.micPaused){
+    _ivState.micPaused=false;
+    try{
+      if(_ivState.recognition&&!_ivState.recActive)_ivState.recognition.start();
+    }catch(e){}
+  }
 }
 function ivAskQuestion(){
   var idx=_ivState.qIdx;
@@ -3336,16 +3916,27 @@ function ivAskQuestion(){
   msgs.scrollTop=msgs.scrollHeight;
   $('ivProgress').style.width=((idx)/_ivState.questions.length*100)+'%';
   $('ivInput').value='';$('ivInput').focus();
+  // 语音读题
+  if(_ivState.mode==='video'){
+    var st=$('ivIntStatus');if(st)st.textContent='正在提问...';
+    ivSpeak(q);
+  }else{
+    _ivState.answerStart=Date.now();
+  }
 }
 function ivSubmitAnswer(){
   var input=$('ivInput');
   var ans=input.value.trim();
   if(!ans){toast('请输入你的回答','err');return;}
+  // 停止语音识别
+  if(_ivState.recording)ivStopMic();
   var idx=_ivState.qIdx;
+  var duration=Math.round((Date.now()-_ivState.answerStart)/1000);
   _ivState.answers.push({q:_ivState.questions[idx],a:ans});
+  _ivState.metrics.push({duration:duration,cameraOn:_ivState.cameraOn,wordCount:ans.length});
   var msgs=$('ivMessages');
   msgs.insertAdjacentHTML('beforeend',
-    '<div class="iv-msg candidate"><div class="iv-av">'+lic('user',16)+'</div><div class="iv-bubble">'+esc(ans)+'</div></div>');
+    '<div class="iv-msg candidate"><div class="iv-av">'+lic('user',16)+'</div><div class="iv-bubble">'+esc(ans)+(duration>0?'<div style="font-size:11px;color:#94a3b8;margin-top:4px">回答时长 '+duration+' 秒</div>':'')+'</div></div>');
   refreshIcons();
   input.value='';
   msgs.scrollTop=msgs.scrollHeight;
@@ -3404,6 +3995,8 @@ function ivEvaluate(qIdx,answer){
 function ivShowResult(){
   _ivState.active=false;
   $('ivChat').style.display='none';
+  // 彻底关闭摄像头和麦克风
+  ivStopAllMedia();
   var total=0;
   var itemsHtml=_ivState.answers.map(function(a,i){
     var r=ivEvaluate(i,a.a);
@@ -3418,26 +4011,292 @@ function ivShowResult(){
   var avg=Math.round(total/_ivState.answers.length);
   var avgCls=avg>=75?'high':(avg>=60?'mid':'low');
   var avgLabel=avg>=75?'优秀':(avg>=60?'良好':'待提升');
+  var earlyExit=_ivState.earlyExit;
+  var answeredCount=_ivState.answers.length;
+  var totalQs=_ivState.questions.length;
+  var exitTag=earlyExit?'<span style="display:inline-block;font-size:11px;padding:2px 8px;border-radius:4px;background:#fef3c7;color:#d97706;margin-left:6px">提前结束 · '+answeredCount+'/'+totalQs+' 题</span>':'';
+  // 多维评分
+  var dims=ivCalcDimensions();
+  var dimsHtml=dims.map(function(d){
+    var dCls=d.score>=75?'#16a34a':(d.score>=60?'#d97706':'#dc2626');
+    return '<div class="iv-dim-card">'+
+      '<div class="dim-head">'+lic(d.icon,14)+'<span class="dim-name">'+d.name+'</span><span class="dim-score" style="color:'+dCls+'">'+d.score+'</span></div>'+
+      '<div class="iv-dim-bar"><i style="width:'+d.score+'%;background:'+dCls+'"></i></div>'+
+      '<div class="dim-fb">'+d.feedback+'</div>'+
+    '</div>';
+  }).join('');
   $('ivResult').innerHTML=
     '<div class="iv-score-head">'+
       '<div class="iv-score-ring '+avgCls+'">'+avg+'</div>'+
-      '<div><div style="font-size:16px;font-weight:700">面试综合评分</div><div style="font-size:13px;color:var(--muted);margin-top:2px">'+avgLabel+'（'+avg+'/100）· 目标岗位：'+STATE.career+'</div></div>'+
+      '<div><div style="font-size:16px;font-weight:700">面试综合评分'+exitTag+'</div><div style="font-size:13px;color:var(--muted);margin-top:2px">'+avgLabel+'（'+avg+'/100）· 目标岗位：'+STATE.career+' · '+(_ivState.mode==='video'?'视频面试':'文字面试')+'</div></div>'+
     '</div>'+
+    (earlyExit?'<div style="font-size:12px;color:#d97706;background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:8px 12px;margin-bottom:14px">'+lic('info',12)+' 本次面试为提前结束，评分基于已完成的 '+answeredCount+' 道题生成。建议完成全部题目以获得更准确的评估。</div>':'')+
+    '<div style="font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px">多维度评估</div>'+
+    '<div class="iv-dim-grid">'+dimsHtml+'</div>'+
     '<div style="font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px">逐题反馈</div>'+
     itemsHtml+
     '<div style="margin-top:16px;display:flex;gap:10px">'+
-      '<button class="btn btn-ghost" onclick="ivRestart()">'+lic('rotate-ccw',14)+' 再来一次</button>'+
-      '<button class="btn btn-primary" onclick="switchPanel(\'resume\')">'+lic('file-text',14)+' 去优化简历</button>'+
+      '<button class="btn btn-ghost" id="ivRestartBtn">'+lic('rotate-ccw',14)+' 再来一次</button>'+
+      '<button class="btn btn-primary" id="ivGoResumeBtn">'+lic('file-text',14)+' 去优化简历</button>'+
     '</div>';
   $('ivResult').style.display='block';
   refreshIcons();
+  // 绑定按钮事件（避免动态HTML内联onclick失效）
+  var rb=$('ivRestartBtn');
+  if(rb)rb.addEventListener('click',function(){ivRestart();});
+  var grb=$('ivGoResumeBtn');
+  if(grb)grb.addEventListener('click',function(){switchPanel('resume');});
   toast('面试结束，综合评分 '+avg+'/100',avg>=75?'ok':'');
   checkAchievement('interview_done');
+  // 保存面试记录到历史
+  ivSaveHistory(avg,dims,avgLabel);
+}
+/* ---------- 面试历史 ---------- */
+var _ivHistory=[];
+function ivLoadHistory(){
+  try{var r=localStorage.getItem('ivHistory');if(r)_ivHistory=JSON.parse(r)||[];}catch(e){_ivHistory=[];}
+}
+function ivSaveHistory(avg,dims,avgLabel){
+  ivLoadHistory();
+  // 分析长处和不足
+  var analysis=ivAnalyzeStrengths(dims,_ivState.answers,_ivState.metrics);
+  var record={
+    id:Date.now(),
+    time:nowTime(),
+    career:STATE.career||'目标岗位',
+    mode:_ivState.mode,
+    score:avg,
+    label:avgLabel,
+    earlyExit:!!_ivState.earlyExit,
+    answered:_ivState.answers.length,
+    total:_ivState.questions.length,
+    dims:dims.map(function(d){return {name:d.name,score:d.score,feedback:d.feedback};}),
+    strengths:analysis.strengths,
+    weaknesses:analysis.weaknesses,
+    answers:_ivState.answers.map(function(a){return {q:a.q,a:a.a};})
+  };
+  _ivHistory.unshift(record);
+  // 最多保存 20 条
+  if(_ivHistory.length>20)_ivHistory=_ivHistory.slice(0,20);
+  try{localStorage.setItem('ivHistory',JSON.stringify(_ivHistory));}catch(e){}
+  ivUpdateHistBadge();
+}
+function ivAnalyzeStrengths(dims,answers,metrics){
+  var strengths=[],weaknesses=[];
+  // 基于维度分数分析
+  dims.forEach(function(d){
+    if(d.score>=80){
+      strengths.push(d.name+'表现突出：'+d.feedback);
+    }else if(d.score<60){
+      weaknesses.push(d.name+'有待加强：'+d.feedback);
+    }
+  });
+  // 基于回答内容分析
+  var totalWords=answers.reduce(function(s,a){return s+a.a.length;},0);
+  var avgWords=answers.length>0?Math.round(totalWords/answers.length):0;
+  if(avgWords>=150){
+    strengths.push('回答内容充实，平均每题'+avgWords+'字，展现了较深的思考');
+  }else if(avgWords<50&&answers.length>0){
+    weaknesses.push('回答偏简短（平均'+avgWords+'字），建议用STAR法则展开更多细节');
+  }
+  // 基于关键词命中
+  var career=STATE.career||'';
+  var kws=SKILL_BY_CAREER[career]||[];
+  var hitKws=[];
+  answers.forEach(function(a){
+    kws.forEach(function(k){if(a.a.indexOf(k)>=0&&hitKws.indexOf(k)<0)hitKws.push(k);});
+  });
+  if(hitKws.length>=3){
+    strengths.push('回答中体现了岗位核心技能：'+hitKws.slice(0,5).join('、'));
+  }else if(kws.length>0&&hitKws.length<2){
+    weaknesses.push('回答中较少提及岗位关键词，建议融入：'+kws.slice(0,4).join('、'));
+  }
+  // 基于回答时长
+  if(metrics.length>0){
+    var avgDur=metrics.reduce(function(s,m){return s+m.duration;},0)/metrics.length;
+    if(avgDur>=30&&avgDur<=90){
+      strengths.push('回答节奏把控得当，平均'+Math.round(avgDur)+'秒/题');
+    }else if(avgDur<15){
+      weaknesses.push('回答时长偏短（平均'+Math.round(avgDur)+'秒），显得准备不充分');
+    }else if(avgDur>120){
+      weaknesses.push('回答时长偏长（平均'+Math.round(avgDur)+'秒），注意控制节奏');
+    }
+  }
+  // 视频模式加分项
+  if(_ivState.mode==='video'&&_ivState.cameraOn){
+    strengths.push('勇于开启视频面试，展现了自信和真实感');
+  }
+  // 兜底：如果没有任何长处
+  if(strengths.length===0){
+    strengths.push('完成了模拟面试练习，迈出了提升面试能力的第一步');
+  }
+  if(weaknesses.length===0){
+    weaknesses.push('各维度表现均衡，建议针对薄弱项做专项突破');
+  }
+  return {strengths:strengths,weaknesses:weaknesses};
+}
+function ivUpdateHistBadge(){
+  ivLoadHistory();
+  var badge=$('ivHistBadge');
+  if(badge)badge.textContent=_ivHistory.length;
+}
+function ivRenderHistory(){
+  ivLoadHistory();
+  var container=$('ivHistContainer');
+  if(!container)return;
+  if(_ivHistory.length===0){
+    container.innerHTML='<div class="iv-hist-empty">'+
+      '<div class="ic"><i data-lucide="history" style="width:32px;height:32px"></i></div>'+
+      '<div class="tt">还没有面试记录</div>'+
+      '<div class="sub">完成一次模拟面试后，这里会保存你的面试记录<br>包括综合评分、长处分析和改进建议</div>'+
+    '</div>';
+    refreshIcons();
+    return;
+  }
+  container.innerHTML=_ivHistory.map(function(r){
+    var scCls=r.score>=75?'high':(r.score>=60?'mid':'low');
+    var modeTag=r.mode==='video'?'<span class="tag video">视频面试</span>':'<span class="tag text">文字面试</span>';
+    var earlyTag=r.earlyExit?'<span class="tag early">提前结束 '+r.answered+'/'+r.total+'题</span>':'';
+    var strengthsHtml=r.strengths.map(function(s){return '<li>'+esc(s)+'</li>';}).join('');
+    var weaknessesHtml=r.weaknesses.map(function(s){return '<li>'+esc(s)+'</li>';}).join('');
+    var dimsHtml=r.dims.map(function(d){
+      var dCls=d.score>=75?'high':(d.score>=60?'mid':'low');
+      return '<div class="iv-hist-dim"><span class="nm">'+d.name+'</span><span class="vl '+dCls+'">'+d.score+'</span></div>';
+    }).join('');
+    return '<div class="iv-hist-card" data-id="'+r.id+'">'+
+      '<div class="iv-hist-head">'+
+        '<div class="iv-hist-score-ring '+scCls+'">'+r.score+'</div>'+
+        '<div class="info">'+
+          '<div class="career">'+lic('briefcase',14)+' '+esc(r.career)+'</div>'+
+          '<div class="meta">'+modeTag+earlyTag+'<span>'+lic('clock',12)+' '+r.time+'</span><span>'+lic('file-text',12)+' '+r.answered+'题</span></div>'+
+        '</div>'+
+        '<button class="del" data-id="'+r.id+'" title="删除记录">'+lic('trash-2',15)+'</button>'+
+      '</div>'+
+      '<div class="iv-hist-body">'+
+        '<div class="iv-hist-section strengths">'+
+          '<h4>'+lic('thumbs-up',14)+' 长处</h4>'+
+          '<ul>'+strengthsHtml+'</ul>'+
+        '</div>'+
+        '<div class="iv-hist-section weaknesses">'+
+          '<h4>'+lic('thumbs-down',14)+' 不足</h4>'+
+          '<ul>'+weaknessesHtml+'</ul>'+
+        '</div>'+
+      '</div>'+
+      '<div class="iv-hist-dims">'+dimsHtml+'</div>'+
+    '</div>';
+  }).join('');
+  refreshIcons();
+  // 绑定删除按钮
+  container.querySelectorAll('.del').forEach(function(btn){
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var id=parseInt(this.getAttribute('data-id'));
+      confirmDialog('删除记录','确定删除这条面试记录吗？删除后不可恢复。',function(){
+        ivDeleteHistory(id);
+      });
+    });
+  });
+}
+function ivDeleteHistory(id){
+  _ivHistory=_ivHistory.filter(function(r){return r.id!==id;});
+  try{localStorage.setItem('ivHistory',JSON.stringify(_ivHistory));}catch(e){}
+  ivRenderHistory();
+  ivUpdateHistBadge();
+  toast('记录已删除','');
+}
+function ivCalcDimensions(){
+  var answers=_ivState.answers;
+  var metrics=_ivState.metrics;
+  var isVideo=_ivState.mode==='video';
+  // 1. 回答质量（已有平均分）
+  var qTotal=0;
+  answers.forEach(function(a,i){qTotal+=ivEvaluate(i,a.a).score;});
+  var qScore=Math.round(qTotal/answers.length);
+  // 2. 表达流畅度（基于字数/时长比）
+  var fluencyScore=75;
+  if(metrics.length>0&&metrics[0].duration>0){
+    var avgWps=metrics.reduce(function(s,m){return s+m.wordCount/Math.max(m.duration,1);},0)/metrics.length;
+    // 正常语速 2-4 字/秒
+    if(avgWps>=2&&avgWps<=5)fluencyScore=85;
+    else if(avgWps>=1.5&&avgWps<=6)fluencyScore=72;
+    else if(avgWps<1)fluencyScore=50;
+    else fluencyScore=60;
+  }
+  // 3. 面容仪态（视频模式才评估）
+  var appearanceScore;
+  var appearanceFb;
+  if(isVideo&&_ivState.cameraOn){
+    // 摄像头已开启，基于回答时长和稳定性模拟评估
+    var avgDur=metrics.reduce(function(s,m){return s+m.duration;},0)/metrics.length;
+    if(avgDur>=30&&avgDur<=120){
+      appearanceScore=82;
+      appearanceFb='摄像头全程开启，面试过程专注度高，保持了良好的出镜状态。';
+    }else if(avgDur<15){
+      appearanceScore=65;
+      appearanceFb='回答偏简短，建议适当展开，展现更多思考过程。';
+    }else{
+      appearanceScore=75;
+      appearanceFb='面试表现稳定，建议保持眼神专注和自然表情。';
+    }
+  }else if(isVideo){
+    appearanceScore=45;
+    appearanceFb='摄像头未成功开启，无法评估面容仪态。建议检查设备权限后重试。';
+  }else{
+    appearanceScore=0;
+    appearanceFb='文字模式无法评估面容仪态，建议使用视频面试模式获得完整评估。';
+  }
+  // 4. 时间管理
+  var timeScore=75;
+  if(metrics.length>0){
+    var avgDur2=metrics.reduce(function(s,m){return s+m.duration;},0)/metrics.length;
+    if(avgDur2>=30&&avgDur2<=90)timeScore=85;
+    else if(avgDur2>=15&&avgDur2<=150)timeScore=70;
+    else if(avgDur2<10)timeScore=50;
+    else timeScore=55;
+  }
+  // 5. 专业匹配度
+  var career=STATE.career||'目标岗位';
+  var kws=SKILL_BY_CAREER[career]||[];
+  var totalKw=0;
+  answers.forEach(function(a){totalKw+=kws.filter(function(k){return a.a.indexOf(k)>=0;}).length;});
+  var matchScore=Math.min(60+totalKw*8,95);
+  var dims=[
+    {name:'回答质量',icon:'message-square-check',score:qScore,feedback:qScore>=75?'回答结构清晰，内容充实':(qScore>=60?'回答基本到位，可进一步深化':'回答需更充实，建议用STAR法则展开')},
+    {name:'表达流畅度',icon:'audio-lines',score:fluencyScore,feedback:fluencyScore>=80?'语速适中，表达流畅自然':(fluencyScore>=65?'表达基本流畅，注意控制节奏':'语速过快或过慢，建议练习控制节奏')},
+    {name:'专业匹配度',icon:'target',score:matchScore,feedback:matchScore>=80?'回答中体现了岗位核心技能':(matchScore>=60?'提及了部分专业技能':'建议在回答中融入更多岗位关键词')},
+    {name:'时间管理',icon:'clock',score:timeScore,feedback:timeScore>=80?'回答时长把控精准':(timeScore>=65?'时长基本合理':'回答过长或过短，注意控制时间')}
+  ];
+  if(isVideo||appearanceScore>0){
+    dims.splice(2,0,{name:'面容仪态',icon:'smile',score:appearanceScore,feedback:appearanceFb});
+  }
+  return dims;
 }
 function ivRestart(){
   $('ivResult').style.display='none';
   $('ivStart').style.display='block';
-  _ivState={active:false,qIdx:0,answers:[],questions:[]};
+  ivStopAllMedia();
+  _ivState={active:false,qIdx:0,answers:[],questions:[],mode:'text',cameraOn:false,stream:null,recognition:null,recording:false,answerStart:0,metrics:[],recActive:false,micPaused:false,micDenied:false,earlyExit:false};
+}
+function ivExitInterview(){
+  // 结束并退出面试，彻底关闭摄像头和麦克风权限
+  ivStopAllMedia();
+  _ivState.active=false;
+  $('ivChat').style.display='none';
+  $('ivResult').style.display='none';
+  $('ivStart').style.display='block';
+  // 重置但保留 recognition 对象（避免重新初始化失败）
+  _ivState.qIdx=0;_ivState.answers=[];_ivState.metrics=[];
+  _ivState.recording=false;_ivState.recActive=false;_ivState.micPaused=false;
+  toast('面试已结束，摄像头和麦克风已关闭','');
+}
+function ivFinishWithScore(){
+  // 结束面试并基于已完成的回答生成评分报告
+  ivStopAllMedia();
+  _ivState.active=false;
+  // 直接调用 ivShowResult，它会基于当前 answers 生成评分
+  // 但因为可能没答完所有题，需要标记为"提前结束"
+  _ivState.earlyExit=true;
+  ivShowResult();
 }
 
 /* ---------- 行情分析 ---------- */
@@ -3636,17 +4495,32 @@ function tsShowQuestion(){
   var idx=_tsState.qIdx;
   var q=qs[idx];
   $('tsProgress').style.width=((idx)/qs.length*100)+'%';
+  // 检查是否已有答案（返回上一题时高亮）
+  var prevAnswer=_tsState.answers[idx];
   var optsHtml=q.options.map(function(o,i){
-    return '<div class="ts-option" data-i="'+i+'">'+o.text+'</div>';
+    var sel=(prevAnswer&&prevAnswer._optIdx===i)?' selected':'';
+    return '<div class="ts-option'+sel+'" data-i="'+i+'">'+o.text+'</div>';
   }).join('');
   $('tsQCard').innerHTML=
-    '<div class="ts-q-num">第 '+(idx+1)+'/'+qs.length+' 题</div>'+
+    '<div class="ts-q-num">第 '+(idx+1)+' / '+qs.length+' 题'+(idx>0?'<span class="ts-q-back" id="tsBackBtn">'+lic('arrow-left',14)+' 上一题</span>':'')+'</div>'+
     '<div class="ts-q-text">'+q.q+'</div>'+optsHtml;
+  // 上一题按钮
+  var backBtn=$('tsBackBtn');
+  if(backBtn){
+    backBtn.addEventListener('click',function(){
+      _tsState.qIdx--;
+      tsShowQuestion();
+    });
+  }
   $('tsQCard').querySelectorAll('.ts-option').forEach(function(el){
     el.addEventListener('click',function(){
       var i=parseInt(this.getAttribute('data-i'));
       this.classList.add('selected');
-      _tsState.answers.push(q.options[i]);
+      var ans=q.options[i];
+      ans._optIdx=i;
+      _tsState.answers[idx]=ans;
+      // 如果是修改答案，截断后面的
+      if(_tsState.answers.length>idx+1)_tsState.answers=_tsState.answers.slice(0,idx+1);
       setTimeout(function(){
         _tsState.qIdx++;
         if(_tsState.qIdx<qs.length){tsShowQuestion();}
@@ -3654,6 +4528,51 @@ function tsShowQuestion(){
       },250);
     });
   });
+}
+/* 6 大性格维度定义 */
+var TS_DIMENSIONS=[
+  {key:'analytical',name:'分析型',icon:'brain',desc:'善于逻辑推理和数据拆解，偏好结构化思考'},
+  {key:'creative',name:'创造型',icon:'lightbulb',desc:'思维发散，富有想象力，喜欢探索新可能'},
+  {key:'social',name:'社交型',icon:'users',desc:'擅长人际沟通与协调，关注人的需求与情绪'},
+  {key:'executive',name:'执行型',icon:'target',desc:'注重落地和结果，在明确分工中高效产出'},
+  {key:'stable',name:'稳定型',icon:'shield',desc:'偏好可预期的节奏，追求工作与生活的平衡'},
+  {key:'adventurous',name:'冒险型',icon:'rocket',desc:'拥抱变化和挑战，在不确定性中激发潜能'}
+];
+/* 职业到维度的映射 */
+var CAREER_DIM_MAP={
+  'AI产品经理':{analytical:2,creative:2,social:1,executive:1,stable:0,adventurous:3},
+  '数据分析师':{analytical:3,creative:1,social:0,executive:2,stable:2,adventurous:0},
+  '前端工程师':{analytical:2,creative:2,social:0,executive:3,stable:1,adventurous:1},
+  '后端工程师':{analytical:3,creative:0,social:0,executive:3,stable:2,adventurous:0},
+  '算法工程师':{analytical:3,creative:1,social:0,executive:2,stable:1,adventurous:2},
+  'UI/UX设计师':{analytical:1,creative:3,social:2,executive:1,stable:1,adventurous:1},
+  '互联网运营':{analytical:1,creative:2,social:3,executive:2,stable:0,adventurous:3},
+  '产品运营':{analytical:1,creative:2,social:2,executive:3,stable:1,adventurous:1},
+  '财务分析师':{analytical:3,creative:0,social:1,executive:3,stable:3,adventurous:0},
+  '人力资源专员':{analytical:1,creative:1,social:3,executive:2,stable:3,adventurous:0},
+  '新媒体编辑':{analytical:1,creative:3,social:2,executive:1,stable:0,adventurous:2},
+  '临床医师':{analytical:2,creative:0,social:2,executive:3,stable:2,adventurous:1},
+  '律师':{analytical:3,creative:1,social:1,executive:2,stable:2,adventurous:1},
+  '教师':{analytical:1,creative:2,social:3,executive:2,stable:3,adventurous:0}
+};
+/* 选项到维度的映射（基于选项特征） */
+function tsCalcDimensions(answers){
+  var dims={analytical:0,creative:0,social:0,executive:0,stable:0,adventurous:0};
+  answers.forEach(function(a){
+    if(!a.scores)return;
+    for(var career in a.scores){
+      var w=a.scores[career];
+      var dm=CAREER_DIM_MAP[career];
+      if(dm){
+        for(var dk in dm){dims[dk]=(dims[dk]||0)+dm[dk]*w;}
+      }
+    }
+  });
+  // 归一化到 0-100
+  var max=0;
+  for(var k in dims){if(dims[k]>max)max=dims[k];}
+  if(max>0){for(var k2 in dims){dims[k2]=Math.round(dims[k2]/max*100);}}
+  return dims;
 }
 function tsShowResult(){
   var scores={};
@@ -3663,42 +4582,148 @@ function tsShowResult(){
   var ranked=Object.keys(scores).map(function(k){return {career:k,score:scores[k]};}).sort(function(a,b){return b.score-a.score;});
   var top3=ranked.slice(0,3);
   var maxScore=top3[0]?top3[0].score:1;
+  // 计算性格维度
+  var dims=tsCalcDimensions(_tsState.answers);
+  var sortedDims=TS_DIMENSIONS.map(function(d){return {key:d.key,name:d.name,icon:d.icon,desc:d.desc,score:dims[d.key]||0};}).sort(function(a,b){return b.score-a.score;});
+  var topDim=sortedDims[0];
+  var secondDim=sortedDims[1];
+  var personalityType=topDim.name+'·'+secondDim.name;
   var reasons={
-    'AI产品经理':'你在技术和商业之间有良好的平衡感',
-    '数据分析师':'你善于从数据中发现规律和洞察',
-    '前端工程师':'你注重细节和用户体验',
-    '后端工程师':'你偏好逻辑思维和系统设计',
-    '算法工程师':'你对技术深度有强烈追求',
-    'UI/UX设计师':'你具有出色的审美和共情能力',
-    '互联网运营':'你善于沟通和驱动增长',
-    '产品运营':'你兼具产品思维和执行能力',
-    '财务分析师':'你对数字敏感，逻辑严谨',
-    '人力资源专员':'你善于倾听和组织协调',
-    '新媒体编辑':'你富有创意和文字表达力',
-    '临床医师':'你有强烈的责任心和耐心',
-    '律师':'你逻辑严密，善于分析和辩论',
-    '教师':'你乐于分享，有教育情怀'
+    'AI产品经理':'技术与商业的平衡感强，善于在变化中抓住机会',
+    '数据分析师':'善于从数据中发现规律，逻辑思维突出',
+    '前端工程师':'注重细节和体验，执行力强且有一定创造力',
+    '后端工程师':'逻辑思维和系统设计能力突出，偏好稳定深入',
+    '算法工程师':'对技术深度有强烈追求，分析能力顶尖',
+    'UI/UX设计师':'审美出众，共情能力强，富有创造力',
+    '互联网运营':'善于沟通和驱动增长，拥抱变化和挑战',
+    '产品运营':'兼具产品思维和执行能力，平衡感好',
+    '财务分析师':'对数字敏感，逻辑严谨，追求稳定',
+    '人力资源专员':'善于倾听和组织协调，关注人际与稳定',
+    '新媒体编辑':'富有创意和文字表达力，喜欢新鲜感',
+    '临床医师':'责任心强，执行力突出，有一定抗压能力',
+    '律师':'逻辑严密，善于分析和辩论，追求深度',
+    '教师':'乐于分享，有教育情怀，偏好稳定'
   };
   $('tsQuiz').style.display='none';
+  // 推荐列表HTML
   var itemsHtml=top3.map(function(r,i){
     var pct=Math.round(r.score/maxScore*100);
     var c=CAREERS.find(function(x){return x.name===r.career;});
-    return '<div class="ts-rec-item" onclick="selectCareer(\''+r.career+'\')">'+
-      '<div class="rank r'+(i+1)+'">'+(i+1)+'</div>'+
-      '<div class="info"><div class="name">'+(c?lic(c.ico,16):'')+' '+r.career+'</div>'+
-      '<div class="reason">'+(reasons[r.career]||'与你的性格高度匹配')+'</div></div>'+
-      '<div class="match">'+pct+'%</div></div>';
+    var dm=CAREER_DIM_MAP[r.career]||{};
+    var matchDims=TS_DIMENSIONS.filter(function(d){return (dm[d.key]||0)>=2;}).map(function(d){return d.name;});
+    return '<div class="ts-rec-card" data-career="'+r.career+'" data-idx="'+i+'">'+
+      '<div class="ts-rec-rank r'+(i+1)+'">'+(i+1)+'</div>'+
+      '<div class="ts-rec-pct">'+pct+'%</div>'+
+      '<div class="ts-rec-name">'+(c?lic(c.ico,18):'')+' '+r.career+'</div>'+
+      '<div class="ts-rec-reason">'+(reasons[r.career]||'与你的性格高度匹配')+'</div>'+
+      (matchDims.length>0?'<div class="ts-match-dims">'+lic('zap',11)+' '+matchDims.join('、')+'</div>':'')+
+    '</div>';
+  }).join('');
+  // 维度条HTML
+  var dimsBarHtml=sortedDims.map(function(d){
+    var dCls=d.score>=70?'high':(d.score>=40?'mid':'low');
+    return '<div class="ts-dim-row">'+
+      '<div class="ts-dim-head"><span class="ts-dim-icon">'+lic(d.icon,14)+'</span><span class="ts-dim-name">'+d.name+'</span><span class="ts-dim-score '+dCls+'">'+d.score+'</span></div>'+
+      '<div class="ts-dim-bar"><i class="'+dCls+'" style="width:'+d.score+'%"></i></div>'+
+    '</div>';
   }).join('');
   $('tsResult').innerHTML=
-    '<h3>测试结果 · 推荐职业方向</h3>'+
-    '<div style="font-size:13px;color:var(--muted);text-align:center;margin-bottom:16px">基于你的 10 题回答，以下是 3 个最匹配的职业</div>'+
-    itemsHtml+
-    '<div style="margin-top:16px;text-align:center">'+
-      '<button class="btn btn-ghost" onclick="tsStartTest()">'+lic('rotate-ccw',14)+' 重新测试</button>'+
+    '<div class="ts-result-top">'+
+      '<div class="ts-radar-area"><canvas id="tsRadar" width="240" height="240"></canvas></div>'+
+      '<div class="ts-profile">'+
+        '<div class="ts-profile-label">你的性格类型</div>'+
+        '<div class="ts-profile-type">'+personalityType+'</div>'+
+        '<div class="ts-profile-desc">'+topDim.desc+'</div>'+
+        '<div class="ts-profile-desc" style="margin-top:6px">'+secondDim.desc+'</div>'+
+        '<div class="ts-profile-tags">'+
+          sortedDims.slice(0,3).map(function(d){return '<span class="ts-profile-tag">'+lic(d.icon,11)+' '+d.name+'</span>';}).join('')+
+        '</div>'+
+      '</div>'+
+    '</div>'+
+    '<div class="ts-section-title">性格维度详情</div>'+
+    '<div class="ts-dims-grid">'+dimsBarHtml+'</div>'+
+    '<div class="ts-section-title">推荐职业方向 <span style="font-size:12px;color:var(--muted);font-weight:400;margin-left:6px">基于 '+_tsState.answers.length+' 题回答和性格维度</span></div>'+
+    '<div class="ts-rec-grid">'+itemsHtml+'</div>'+
+    '<div style="margin-top:16px;text-align:center;display:flex;gap:10px;justify-content:center">'+
+      '<button class="btn btn-ghost" id="tsRetestBtn">'+lic('rotate-ccw',14)+' 重新测试</button>'+
+      '<button class="btn btn-primary" id="tsGoPlanBtn">'+lic('arrow-right',14)+' 查看选课方案</button>'+
     '</div>';
   $('tsResult').style.display='block';
   refreshIcons();
+  // 绘制雷达图
+  setTimeout(function(){tsDrawRadar(dims);},100);
+  // 绑定按钮
+  var tsRb=$('tsRetestBtn');
+  if(tsRb)tsRb.addEventListener('click',function(){tsStartTest();});
+  var tsGp=$('tsGoPlanBtn');
+  if(tsGp)tsGp.addEventListener('click',function(){
+    if(top3[0])selectCareer(top3[0].career);
+  });
+  // 绑定推荐项点击
+  $('tsResult').querySelectorAll('.ts-rec-card').forEach(function(item){
+    item.addEventListener('click',function(){
+      var career=this.getAttribute('data-career');
+      selectCareer(career);
+    });
+  });
   checkAchievement('test_done');
+}
+function tsDrawRadar(dims){
+  var canvas=$('tsRadar');
+  if(!canvas)return;
+  var ctx=canvas.getContext('2d');
+  var cx=120,cy=120,radius=82;
+  var labels=TS_DIMENSIONS.map(function(d){return d.name;});
+  var values=TS_DIMENSIONS.map(function(d){return (dims[d.key]||0)/100;});
+  var n=labels.length;
+  ctx.clearRect(0,0,240,240);
+  // 背景网格
+  ctx.strokeStyle='#e2e8f0';ctx.lineWidth=1;
+  for(var level=1;level<=4;level++){
+    var lr=radius*level/4;
+    ctx.beginPath();
+    for(var i=0;i<=n;i++){
+      var ang=-Math.PI/2+i*2*Math.PI/n;
+      var x=cx+Math.cos(ang)*lr,y=cy+Math.sin(ang)*lr;
+      if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
+    }
+    ctx.stroke();
+  }
+  // 轴线
+  ctx.strokeStyle='#cbd5e1';
+  for(var i2=0;i2<n;i2++){
+    var ang2=-Math.PI/2+i2*2*Math.PI/n;
+    ctx.beginPath();
+    ctx.moveTo(cx,cy);
+    ctx.lineTo(cx+Math.cos(ang2)*radius,cy+Math.sin(ang2)*radius);
+    ctx.stroke();
+  }
+  // 数据多边形
+  ctx.fillStyle='rgba(37,99,235,0.15)';
+  ctx.strokeStyle='#2563eb';ctx.lineWidth=2;
+  ctx.beginPath();
+  for(var i3=0;i3<n;i3++){
+    var ang3=-Math.PI/2+i3*2*Math.PI/n;
+    var val=values[i3];
+    var x=cx+Math.cos(ang3)*radius*val,y=cy+Math.sin(ang3)*radius*val;
+    if(i3===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
+  }
+  ctx.closePath();ctx.fill();ctx.stroke();
+  // 数据点
+  ctx.fillStyle='#2563eb';
+  for(var i4=0;i4<n;i4++){
+    var ang4=-Math.PI/2+i4*2*Math.PI/n;
+    var val2=values[i4];
+    var x2=cx+Math.cos(ang4)*radius*val2,y2=cy+Math.sin(ang4)*radius*val2;
+    ctx.beginPath();ctx.arc(x2,y2,4,0,2*Math.PI);ctx.fill();
+  }
+  // 标签
+  ctx.fillStyle='#334155';ctx.font='600 12px "PingFang SC","Microsoft YaHei",sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+  for(var i5=0;i5<n;i5++){
+    var ang5=-Math.PI/2+i5*2*Math.PI/n;
+    var lx=cx+Math.cos(ang5)*(radius+20),ly=cy+Math.sin(ang5)*(radius+20);
+    ctx.fillText(labels[i5],lx,ly);
+  }
 }
 
 /* ---------- 成就系统 ---------- */
@@ -3894,7 +4919,33 @@ function bindEvents(){
   $('atsBtn').addEventListener('click',atsCheck);
   $('snBtn').addEventListener('click',showSalaryNegotiation);
   // AI 模拟面试
-  $('ivStartBtn').addEventListener('click',ivStartInterview);
+  $('ivStartBtn').addEventListener('click',function(){ivStartInterview('video');});
+  $('ivStartTextBtn').addEventListener('click',function(){ivStartInterview('text');});
+  $('ivMic').addEventListener('click',ivToggleMic);
+  $('ivExitBtn').addEventListener('click',function(){
+    var answered=_ivState.answers.length;
+    if(answered===0){
+      confirmDialog('结束面试','确定要结束当前面试吗？你还没有回答任何问题。',function(){
+        ivExitInterview();
+      });
+    }else{
+      confirmDialog('结束面试','确定要结束当前面试吗？已完成的 '+answered+' 道题将生成评分报告。',function(){
+        ivFinishWithScore();
+      });
+    }
+  });
+  // 面试 Tab 切换
+  document.querySelectorAll('.iv-tab').forEach(function(tab){
+    tab.addEventListener('click',function(){
+      var t=this.getAttribute('data-ivtab');
+      document.querySelectorAll('.iv-tab').forEach(function(b){b.classList.remove('active');});
+      this.classList.add('active');
+      document.querySelectorAll('.iv-tab-panel').forEach(function(p){p.classList.remove('active');});
+      if(t==='practice'){$('ivPanelPractice').classList.add('active');}
+      else{$('ivPanelHistory').classList.add('active');ivRenderHistory();}
+    });
+  });
+  ivUpdateHistBadge();
   // 性格测试
   $('tsStartBtn').addEventListener('click',tsStartTest);
   // 论坛
