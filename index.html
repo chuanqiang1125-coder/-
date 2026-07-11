@@ -1039,6 +1039,42 @@ const ACHIEVEMENTS = [
   .ats-kw.hit{background:#dcfce7;color:#16a34a}
   .ats-kw.miss{background:#fef2f2;color:#dc2626;border:1px dashed #fca5a5}
   .ats-suggest{font-size:12.5px;color:var(--muted);line-height:1.6;margin-top:10px;padding:10px;background:var(--soft);border-radius:8px}
+  /* 简历评分 */
+  .rs-panel{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin-bottom:16px;overflow:hidden;animation:optSlide .3s ease-out}
+  .rs-head{display:flex;align-items:center;gap:10px;padding:14px 18px;background:linear-gradient(135deg,#0ea5e9,#06b6d4);color:#fff}
+  .rs-head .ic{width:28px;height:28px;border-radius:7px;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center}
+  .rs-head .tt{font-size:14px;font-weight:700}
+  .rs-head .close{margin-left:auto;cursor:pointer;opacity:.8;padding:4px;transition:opacity .15s}
+  .rs-head .close:hover{opacity:1}
+  .rs-body{padding:16px 18px}
+  .rs-total{display:flex;align-items:center;gap:18px;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+  .rs-total-ring{width:72px;height:72px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;flex:0 0 72px;position:relative;background:conic-gradient(var(--rs-color,#94a3b8) 0deg,var(--rs-color,#94a3b8) 0deg,#e2e8f0 0deg)}
+  .rs-total-ring::before{content:'';position:absolute;inset:5px;border-radius:50%;background:#fff}
+  .rs-total-ring .rs-num{position:relative;z-index:1;font-size:24px;font-weight:800;line-height:1;color:var(--rs-color,#475569)}
+  .rs-total-ring .rs-unit{position:relative;z-index:1;font-size:11px;font-weight:700;color:var(--rs-color,#94a3b8)}
+  .rs-total-info .rs-grade{font-size:18px;font-weight:800;margin-bottom:2px}
+  .rs-total-info .rs-grade-tag{display:inline-block;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700;margin-bottom:4px}
+  .rs-total-info .rs-grade-tag.high{background:#dcfce7;color:#16a34a}
+  .rs-total-info .rs-grade-tag.mid{background:#fef3c7;color:#d97706}
+  .rs-total-info .rs-grade-tag.low{background:#fee2e2;color:#dc2626}
+  .rs-total-info .rs-desc{font-size:12px;color:var(--muted);line-height:1.5}
+  .rs-dim-title{font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px}
+  .rs-dims{display:flex;flex-direction:column;gap:10px}
+  .rs-dim{display:flex;align-items:center;gap:10px}
+  .rs-dim-name{font-size:12.5px;font-weight:600;color:var(--text);flex:0 0 88px}
+  .rs-dim-bar{flex:1;height:8px;border-radius:4px;background:#f1f5f9;overflow:hidden;position:relative}
+  .rs-dim-fill{height:100%;border-radius:4px;transition:width .6s ease-out}
+  .rs-dim-fill.high{background:linear-gradient(90deg,#22c55e,#16a34a)}
+  .rs-dim-fill.mid{background:linear-gradient(90deg,#fbbf24,#d97706)}
+  .rs-dim-fill.low{background:linear-gradient(90deg,#f87171,#dc2626)}
+  .rs-dim-score{font-size:13px;font-weight:700;flex:0 0 38px;text-align:right}
+  .rs-dim-score.high{color:#16a34a}
+  .rs-dim-score.mid{color:#d97706}
+  .rs-dim-score.low{color:#dc2626}
+  .rs-suggest{margin-top:14px;padding:12px 14px;background:var(--soft);border-radius:8px;font-size:12.5px;color:var(--muted);line-height:1.7}
+  .rs-suggest b{color:var(--text)}
+  .rs-suggest .rs-sug-item{display:flex;gap:6px;align-items:flex-start;margin-top:4px}
+  .rs-suggest .rs-sug-item:first-of-type{margin-top:6px}
   table.courses{width:100%;border-collapse:collapse;background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
   table.courses thead th{background:var(--soft);text-align:left;padding:12px 14px;font-size:13px;color:var(--muted);font-weight:600;border-bottom:1px solid var(--line)}
   table.courses tbody td{padding:12px 14px;border-bottom:1px solid var(--line);font-size:13px;vertical-align:middle}
@@ -1138,6 +1174,54 @@ const ACHIEVEMENTS = [
   .edu-courses-lb{font-size:12px;color:var(--muted);display:inline-flex;align-items:center;gap:3px;margin-bottom:4px}
   .edu-course-tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11.5px;background:var(--soft2);color:var(--text);margin:2px 3px 2px 0}
   .course-unbound-tip{background:var(--accent-light);border:1px solid #bfdbfe;border-radius:10px;padding:10px 14px;font-size:12.5px;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  /* 学习路径时间线 */
+  .roadmap-wrap{padding:4px 0}
+  .roadmap-head{display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap}
+  .roadmap-head .rm-title{font-size:16px;font-weight:700;display:flex;align-items:center;gap:6px}
+  .roadmap-head .rm-sub{font-size:12px;color:var(--muted)}
+  .roadmap-legend{display:flex;flex-wrap:wrap;gap:6px;width:100%;padding:8px 12px;background:var(--soft);border-radius:8px;margin-bottom:16px}
+  .rm-legend-item{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);font-weight:500}
+  .rm-legend-dot{width:8px;height:8px;border-radius:50%;flex:0 0 8px}
+  .roadmap{position:relative;padding-left:26px}
+  .roadmap::before{content:'';position:absolute;left:5px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--accent) 0%,var(--line) 30%,var(--line) 100%);border-radius:1px}
+  .rm-node{position:relative;margin-bottom:14px}
+  .rm-node:last-child{margin-bottom:0}
+  .rm-node::before{content:'';position:absolute;left:-26px;top:6px;width:12px;height:12px;border-radius:50%;border:2px solid var(--line);background:#fff;z-index:1;box-sizing:border-box;transition:all .2s}
+  .rm-node.current::before{background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 4px rgba(59,130,246,.18);animation:rmPulse 2s ease-in-out infinite}
+  @keyframes rmPulse{0%,100%{box-shadow:0 0 0 4px rgba(59,130,246,.18)}50%{box-shadow:0 0 0 7px rgba(59,130,246,.1)}}
+  .rm-node.done::before{background:#16a34a;border-color:#16a34a}
+  .rm-node-head{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+  .rm-sem-tag{display:inline-block;padding:3px 12px;border-radius:12px;font-size:12px;font-weight:700}
+  .rm-node.current .rm-sem-tag{background:var(--accent);color:#fff}
+  .rm-node.done .rm-sem-tag{background:#dcfce7;color:#16a34a}
+  .rm-node.future .rm-sem-tag{background:var(--soft2);color:var(--muted)}
+  .rm-node-label{font-size:11px;font-weight:600;padding:1px 8px;border-radius:8px}
+  .rm-node.current .rm-node-label{background:rgba(59,130,246,.1);color:var(--accent)}
+  .rm-node.done .rm-node-label{background:rgba(22,163,74,.1);color:#16a34a}
+  .rm-node.future .rm-node-label{background:transparent;color:var(--muted)}
+  .rm-tasks{display:flex;flex-direction:column;gap:5px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:#fff;transition:all .2s}
+  .rm-node.current .rm-tasks{border-color:var(--accent);background:linear-gradient(135deg,#eff6ff,#f8fafc);box-shadow:0 2px 12px rgba(59,130,246,.1)}
+  .rm-node.done .rm-tasks{background:var(--soft);border-color:var(--line)}
+  .rm-node.future .rm-tasks{background:#fafbfc;border-style:dashed}
+  .rm-task{display:flex;align-items:flex-start;gap:8px;font-size:13px;line-height:1.5;color:var(--text)}
+  .rm-task-icon{flex:0 0 18px;width:18px;height:18px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+  .rm-task-type{display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;flex:0 0 auto;line-height:1.4;white-space:nowrap}
+  .rm-task-type.t-课程{background:#dbeafe;color:#2563eb}
+  .rm-task-type.t-实习{background:#fed7aa;color:#ea580c}
+  .rm-task-type.t-项目{background:#e9d5ff;color:#9333ea}
+  .rm-task-type.t-比赛{background:#dcfce7;color:#16a34a}
+  .rm-task-type.t-考证{background:#fef3c7;color:#d97706}
+  .rm-task-type.t-求职{background:#fee2e2;color:#dc2626}
+  .rm-task-type.t-简历{background:#dbeafe;color:#2563eb}
+  .rm-task-type.t-面试{background:#fef3c7;color:#d97706}
+  .rm-task-type.t-讲座{background:#e0e7ff;color:#6366f1}
+  .rm-task-type.t-社团{background:#dcfce7;color:#16a34a}
+  .rm-task-type.t-探索{background:#f1f5f9;color:#64748b}
+  .rm-task-type.t-毕业{background:#dbeafe;color:#2563eb}
+  .rm-task-text{flex:1;min-width:0}
+  .rm-node.done .rm-task-text{color:var(--muted)}
+  .rm-node.done .rm-task{opacity:.55}
+  .rm-node.future .rm-task-text{color:var(--muted)}
 
   /* ============ 简历生成 ============ */
   .resume-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:12px}
@@ -2025,6 +2109,7 @@ const ACHIEVEMENTS = [
         <div style="display:flex;gap:10px;flex-wrap:wrap">
           <button class="btn btn-ghost" id="regenBtn"><i data-lucide="refresh-cw" style="width:15px;height:15px;display:inline;vertical-align:-2px;margin-right:4px"></i> 重新生成</button>
           <button class="btn btn-primary" id="aiOptBtn"><i data-lucide="sparkles" style="width:15px;height:15px;display:inline;vertical-align:-2px;margin-right:4px"></i> AI 优化建议</button>
+          <button class="btn btn-ghost" id="resumeScoreBtn"><i data-lucide="gauge" style="width:15px;height:15px;display:inline;vertical-align:-2px;margin-right:4px"></i> 简历评分</button>
           <button class="btn btn-ghost" id="atsBtn"><i data-lucide="search-check" style="width:15px;height:15px;display:inline;vertical-align:-2px;margin-right:4px"></i> ATS 关键词检测</button>
           <button class="btn btn-ghost" id="snBtn"><i data-lucide="handshake" style="width:15px;height:15px;display:inline;vertical-align:-2px;margin-right:4px"></i> 薪资谈判助手</button>
         </div>
@@ -3506,11 +3591,14 @@ function renderPlanResult(courses,major,career,grade){
   html+='<div class="course-tabs" id="courseTabs">'+
     '<button class="course-tab active" data-tab="recommend">'+lic('list',14)+' 课程推荐</button>'+
     '<button class="course-tab" data-tab="schedule">'+lic('calendar-days',14)+' 我的课表<span class="ct-badge">'+(mySelectedCount+myDoneCount)+'</span></button>'+
+    '<button class="course-tab" data-tab="roadmap">'+lic('route',14)+' 学习路径</button>'+
   '</div>';
   // 课程推荐视图
   html+='<div class="course-tab-panel active" id="ctPanelRecommend"></div>';
   // 课表视图
   html+='<div class="course-tab-panel" id="ctPanelSchedule"></div>';
+  // 学习路径时间线视图
+  html+='<div class="course-tab-panel" id="ctPanelRoadmap"></div>';
   var box=$('planResult');box.innerHTML=html;
   // 填充课程推荐面板（复用已构建的表格HTML）
   var recommendHtml='';
@@ -3546,6 +3634,8 @@ function renderPlanResult(courses,major,career,grade){
   $('ctPanelRecommend').innerHTML=recommendHtml;
   // 填充课表面板
   $('ctPanelSchedule').innerHTML=renderSchedule(courses,career);
+  // 填充学习路径时间线面板
+  $('ctPanelRoadmap').innerHTML=renderRoadmap();
   // Tab 切换
   box.querySelectorAll('.course-tab').forEach(function(tab){
     tab.addEventListener('click',function(){
@@ -3554,7 +3644,8 @@ function renderPlanResult(courses,major,career,grade){
       this.classList.add('active');
       box.querySelectorAll('.course-tab-panel').forEach(function(p){p.classList.remove('active');});
       if(t==='recommend')$('ctPanelRecommend').classList.add('active');
-      else $('ctPanelSchedule').classList.add('active');
+      else if(t==='schedule')$('ctPanelSchedule').classList.add('active');
+      else $('ctPanelRoadmap').classList.add('active');
     });
   });
   if(courses.length){
@@ -3587,6 +3678,83 @@ function renderPlanResult(courses,major,career,grade){
     });
   }
   refreshIcons();
+}
+/* ---------- 学习路径时间线 ---------- */
+var ROADMAP_DATA={
+  '大一':[
+    {semester:'大一上',tasks:[{type:'课程',text:'完成通识必修课，探索专业兴趣方向',icon:'book-open'},{type:'讲座',text:'参加职业规划讲座，了解不同行业',icon:'presentation'},{type:'社团',text:'加入1-2个感兴趣的社团，锻炼沟通协作',icon:'users'}]},
+    {semester:'大一下',tasks:[{type:'课程',text:'选修基础编程/数据分析课，打好技术底子',icon:'book-open'},{type:'比赛',text:'参加校级创新创业比赛或学科竞赛',icon:'trophy'},{type:'探索',text:'通过线上课程或讲座了解目标行业',icon:'search'}]},
+    {semester:'大二上',tasks:[{type:'课程',text:'选修目标职业相关的核心专业课',icon:'book-open'},{type:'考证',text:'准备英语四六级/计算机二级等基础证书',icon:'award'},{type:'项目',text:'参与课程大作业或实验室项目，积累作品',icon:'code-2'}]},
+    {semester:'大二下',tasks:[{type:'课程',text:'继续深入专业课，选修跨学科课程',icon:'book-open'},{type:'实习',text:'开始准备简历，关注暑期实习招聘',icon:'briefcase'},{type:'比赛',text:'参加省级或国家级学科竞赛',icon:'trophy'}]},
+    {semester:'大三上',tasks:[{type:'课程',text:'完成核心专业课，选修高阶课程',icon:'book-open'},{type:'实习',text:'投递寒假实习或日常实习',icon:'briefcase'},{type:'项目',text:'独立完成一个高质量项目，丰富简历',icon:'code-2'},{type:'考证',text:'备考目标职业相关证书',icon:'award'}]},
+    {semester:'大三下',tasks:[{type:'实习',text:'争取大厂暑期实习（转正率最高）',icon:'briefcase'},{type:'项目',text:'完善项目作品集，整理GitHub',icon:'code-2'},{type:'比赛',text:'参加含金量高的竞赛并争取获奖',icon:'trophy'}]},
+    {semester:'大四上',tasks:[{type:'求职',text:'参加秋招，投递目标公司',icon:'send'},{type:'面试',text:'用本平台模拟面试功能反复练习',icon:'video'},{type:'简历',text:'多轮优化简历，针对性投递',icon:'file-text'}]},
+    {semester:'大四下',tasks:[{type:'求职',text:'春招补录，把握最后机会',icon:'send'},{type:'毕业',text:'完成毕设/论文，顺利毕业',icon:'graduation-cap'}]}
+  ],
+  '大二':[
+    {semester:'大二下',tasks:[{type:'课程',text:'继续深入专业课，选修跨学科课程',icon:'book-open'},{type:'实习',text:'开始准备简历，关注暑期实习招聘',icon:'briefcase'},{type:'比赛',text:'参加省级或国家级学科竞赛',icon:'trophy'}]},
+    {semester:'大三上',tasks:[{type:'课程',text:'完成核心专业课，选修高阶课程',icon:'book-open'},{type:'实习',text:'投递寒假实习或日常实习',icon:'briefcase'},{type:'项目',text:'独立完成一个高质量项目，丰富简历',icon:'code-2'},{type:'考证',text:'备考目标职业相关证书',icon:'award'}]},
+    {semester:'大三下',tasks:[{type:'实习',text:'争取大厂暑期实习',icon:'briefcase'},{type:'项目',text:'完善项目作品集',icon:'code-2'},{type:'比赛',text:'参加含金量高的竞赛',icon:'trophy'}]},
+    {semester:'大四上',tasks:[{type:'求职',text:'参加秋招，投递目标公司',icon:'send'},{type:'面试',text:'反复模拟面试练习',icon:'video'},{type:'简历',text:'多轮优化简历',icon:'file-text'}]},
+    {semester:'大四下',tasks:[{type:'求职',text:'春招补录',icon:'send'},{type:'毕业',text:'完成毕设，顺利毕业',icon:'graduation-cap'}]}
+  ],
+  '大三':[
+    {semester:'大三上',tasks:[{type:'课程',text:'完成核心专业课，选修高阶课程',icon:'book-open'},{type:'实习',text:'投递寒假实习或日常实习',icon:'briefcase'},{type:'项目',text:'独立完成一个高质量项目',icon:'code-2'},{type:'考证',text:'备考目标职业相关证书',icon:'award'}]},
+    {semester:'大三下',tasks:[{type:'实习',text:'争取大厂暑期实习（转正率最高）',icon:'briefcase'},{type:'项目',text:'完善项目作品集，整理GitHub',icon:'code-2'},{type:'比赛',text:'参加含金量高的竞赛',icon:'trophy'}]},
+    {semester:'大四上',tasks:[{type:'求职',text:'参加秋招，投递目标公司',icon:'send'},{type:'面试',text:'用本平台模拟面试功能反复练习',icon:'video'},{type:'简历',text:'多轮优化简历，针对性投递',icon:'file-text'}]},
+    {semester:'大四下',tasks:[{type:'求职',text:'春招补录，把握最后机会',icon:'send'},{type:'毕业',text:'完成毕设/论文，顺利毕业',icon:'graduation-cap'}]}
+  ],
+  '大四':[
+    {semester:'大四上',tasks:[{type:'求职',text:'全力冲刺秋招，投递目标公司',icon:'send'},{type:'面试',text:'反复模拟面试练习',icon:'video'},{type:'简历',text:'多轮优化简历，针对性投递',icon:'file-text'}]},
+    {semester:'大四下',tasks:[{type:'求职',text:'春招补录，把握最后机会',icon:'send'},{type:'毕业',text:'完成毕设/论文，顺利毕业',icon:'graduation-cap'}]}
+  ]
+};
+// 当前学期判断：根据年级推导当前所处学期
+function getCurrentSemester(grade){
+  var map={'大一':'大一上','大二':'大二上','大三':'大三上','大四':'大四上'};
+  return map[grade]||'大一上';
+}
+function renderRoadmap(){
+  var grade=STATE.grade||'大一';
+  var data=ROADMAP_DATA[grade]||ROADMAP_DATA['大一'];
+  var currentSem=getCurrentSemester(grade);
+  // 图标颜色映射：让任务图标颜色与类型标签一致
+  var iconColors={'课程':'#2563eb','实习':'#ea580c','项目':'#9333ea','比赛':'#16a34a','考证':'#d97706','求职':'#dc2626','简历':'#2563eb','面试':'#d97706','讲座':'#6366f1','社团':'#16a34a','探索':'#64748b','毕业':'#2563eb'};
+  // 图例
+  var legendTypes=[['课程','#2563eb'],['实习','#ea580c'],['项目','#9333ea'],['比赛','#16a34a'],['考证','#d97706'],['求职','#dc2626'],['面试','#d97706'],['毕业','#2563eb']];
+  var legendHtml=legendTypes.map(function(l){
+    return '<span class="rm-legend-item"><span class="rm-legend-dot" style="background:'+l[1]+'"></span>'+l[0]+'</span>';
+  }).join('');
+  // 节点
+  var foundCurrent=false;
+  var nodesHtml=data.map(function(node){
+    var stateCls='future';
+    var stateLabel='';
+    if(node.semester===currentSem){stateCls='current';stateLabel='当前';foundCurrent=true;}
+    else if(!foundCurrent){stateCls='done';stateLabel='已完成';}
+    else{stateCls='future';stateLabel='未来';}
+    var tasksHtml=node.tasks.map(function(t){
+      var ic=iconColors[t.type]||'#64748b';
+      return '<div class="rm-task">'+
+        '<span class="rm-task-icon" style="color:'+ic+'">'+lic(t.icon||'circle',14)+'</span>'+
+        '<span class="rm-task-type t-'+t.type+'">'+t.type+'</span>'+
+        '<span class="rm-task-text">'+t.text+'</span>'+
+      '</div>';
+    }).join('');
+    return '<div class="rm-node '+stateCls+'">'+
+      '<div class="rm-node-head"><span class="rm-sem-tag">'+node.semester+'</span><span class="rm-node-label">'+stateLabel+'</span></div>'+
+      '<div class="rm-tasks">'+tasksHtml+'</div>'+
+    '</div>';
+  }).join('');
+  var html='<div class="roadmap-wrap">'+
+    '<div class="roadmap-head">'+
+      '<span class="rm-title">'+lic('route',16)+' 学习路径时间线</span>'+
+      '<span class="rm-sub">从'+currentSem+'到毕业的学期级规划</span>'+
+    '</div>'+
+    '<div class="roadmap-legend">'+legendHtml+'</div>'+
+    '<div class="roadmap">'+nodesHtml+'</div>'+
+  '</div>';
+  return html;
 }
 function renderSchedule(courses,career){
   // 收集所有已修读+已选课程
@@ -4527,6 +4695,130 @@ function atsCheck(){
   $('atsClose').addEventListener('click',function(){$('atsPanel').remove();});
   refreshIcons();
   toast('ATS 检测完成，命中率 '+hitRate+'%','');
+}
+/* ---------- 简历评分 ---------- */
+function resumeScore(){
+  var r=window.RESUME||defaultResume();
+  var career=STATE.career||'目标岗位';
+  var reqSkills=SKILL_BY_CAREER[career]||[];
+  var btn=$('resumeScoreBtn');
+  btn.disabled=true;btn.innerHTML=lic('loader',15)+' 评分中…';
+  refreshIcons();
+  var area=$('resumeArea');
+  var oldHtml=area.innerHTML;
+  var steps=['正在扫描简历各维度数据…','对比「'+career+'」岗位标准模型…','计算内容完整度与匹配度…','生成多维度评分报告…'];
+  var stepsHtml=steps.map(function(s,i){
+    return '<div class="ai-step" data-i="'+i+'"><div class="num">'+(i+1)+'</div><div class="mini-spin"></div><span class="check">'+lic('check',14)+'</span><div class="txt">'+s+'</div></div>';
+  }).join('');
+  area.innerHTML='<div class="ai-thinking"><div class="at-head"><div class="ic">'+lic('gauge',20)+'</div><div><div class="tt">AI 简历评分引擎正在分析</div><div class="sub">目标岗位：'+career+'</div></div></div><div class="ai-steps">'+stepsHtml+'</div></div>';
+  refreshIcons();
+  var stepEls=area.querySelectorAll('.ai-step');
+  stepEls[0].classList.add('active');
+  var cur=0;
+  function advance(){
+    if(cur<steps.length-1){
+      stepEls[cur].classList.remove('active');stepEls[cur].classList.add('done');cur++;
+      stepEls[cur].classList.add('active');setTimeout(advance,420);
+    }else{
+      stepEls[cur].classList.remove('active');stepEls[cur].classList.add('done');
+      setTimeout(function(){
+        area.innerHTML=oldHtml;renderScoreResult(r,career,reqSkills);
+        btn.disabled=false;btn.innerHTML=lic('gauge',15)+' 简历评分';refreshIcons();
+      },200);
+    }
+  }
+  setTimeout(advance,420);
+}
+function renderScoreResult(r,career,reqSkills){
+  var old=$('rsPanel');if(old)old.remove();
+  // ---- 6 维度评分 ----
+  var dims=[];
+  // 1. 内容完整度 (0-100)
+  var checks=[!!r.personal&&!!r.personal.name,!!r.personal&&!!r.personal.contact&&(r.personal.contact.length>=5),!!r.education&&!!r.education.school,!!r.education&&!!r.education.gpa,(r.skills||[]).length>=3,(r.projects||[]).length>=1,(r.internships||[]).length>=1,(r.research||[]).length>=1,!!_resumePhoto];
+  var done=checks.filter(function(x){return x;}).length;
+  var completeness=Math.round(done/checks.length*100);
+  dims.push({name:'内容完整度',score:completeness,suggest:completeness<100?('还有 '+(checks.length-done)+' 项未填写，补全可提升通过率'):'各板块均已填写，完整度满分'});
+  // 2. 岗位匹配度
+  var skillSet=(r.skills||[]).map(function(s){return s.toLowerCase();});
+  var matched=reqSkills.filter(function(s){return skillSet.indexOf(s.toLowerCase())>=0;});
+  var matchRate=reqSkills.length>0?Math.round(matched.length/reqSkills.length*100):0;
+  var matchScore=Math.min(100,matchRate+20);
+  dims.push({name:'岗位匹配度',score:matchScore,suggest:matched.length<reqSkills.length?('技能栈命中 '+matched.length+'/'+reqSkills.length+'，建议补充：'+reqSkills.filter(function(s){return skillSet.indexOf(s.toLowerCase())<0;}).slice(0,3).join('、')):'岗位核心技能全覆盖，匹配度优秀'});
+  // 3. 表达质量（描述长度 + 是否有动词开头）
+  var allEntries=[(r.projects||[]),(r.internships||[]),(r.research||[])].flat();
+  var avgLen=allEntries.length>0?Math.round(allEntries.reduce(function(s,p){return s+(p.desc||'').length;},0)/allEntries.length):0;
+  var qualScore=Math.min(100,Math.round(avgLen/60*100));
+  if(allEntries.length===0)qualScore=20;
+  dims.push({name:'表达质量',score:qualScore,suggest:avgLen<40?('经历描述平均 '+avgLen+' 字偏短，建议每条 60-100 字，用 STAR 法则展开'):(avgLen<60?'描述长度适中，可适当补充技术细节和成果':'描述详实，信息量充足')});
+  // 4. 量化程度
+  var allDesc=allEntries.map(function(p){return p.desc||'';}).join(' ');
+  var numMatches=(allDesc.match(/\d+%|\d+次|\d+个|\d+万|\d+倍|\d+x/g)||[]).length;
+  var verbMatches=(allDesc.match(/提升|增长|降低|优化|减少|提高|节省|覆盖|服务|支持/g)||[]).length;
+  var quantScore=Math.min(100,numMatches*15+verbMatches*10);
+  dims.push({name:'量化程度',score:quantScore,suggest:quantScore<50?('描述中缺少数据支撑（当前 '+numMatches+' 处量化），建议加入"提升30%""服务10万用户"等具体数字'):'量化表述充分，成果可感知'});
+  // 5. 格式规范（GPA格式、联系方式格式、日期格式）
+  var fmtChecks=0;
+  if(r.education&&r.education.gpa&&/\d+\.?\d*\s*\/\s*\d+\.?\d*/.test(r.education.gpa))fmtChecks++;
+  if(r.personal&&r.personal.contact&&/[\d\-@.]/.test(r.personal.contact))fmtChecks++;
+  if((r.projects||[]).some(function(p){return /\d{4}\.\d{2}/.test(p.date||'');}))fmtChecks++;
+  if((r.skills||[]).length>=3)fmtChecks++;
+  if(!!_resumePhoto)fmtChecks++;
+  var fmtScore=Math.round(fmtChecks/5*100);
+  dims.push({name:'格式规范',score:fmtScore,suggest:fmtScore<80?('GPA 建议写"3.6/4.0"格式、日期用"2025.03"格式、上传证件照，当前 '+fmtChecks+'/5 项规范'):'格式规范，符合投递标准'});
+  // 6. 竞争力（综合项目+实习+科研数量与质量）
+  var compBase=(r.projects||[]).length*20+(r.internships||[]).length*25+(r.research||[]).length*15;
+  var compScore=Math.min(100,compBase);
+  dims.push({name:'综合竞争力',score:compScore,suggest:compScore<60?('经历总量偏少，建议至少 2 个项目 + 1 段实习' + ((r.research||[]).length===0?'，考研/算法方向可加科研':'')):'经历丰富，竞争力较强'});
+  // ---- 总分（加权）----
+  var weights=[0.2,0.25,0.15,0.15,0.1,0.15];
+  var total=Math.round(dims.reduce(function(s,d,i){return s+d.score*weights[i];},0));
+  var grade=total>=80?'A':(total>=65?'B':(total>=50?'C':'D'));
+  var gradeLabel=total>=80?'优秀':(total>=65?'良好':(total>=50?'及格':'待提升'));
+  var gradeCls=total>=75?'high':(total>=50?'mid':'low');
+  var totalColor=total>=75?'#16a34a':(total>=50?'#d97706':'#dc2626');
+  var totalDeg=Math.round(total/100*360);
+  // 维度条
+  var dimsHtml=dims.map(function(d){
+    var cls=d.score>=75?'high':(d.score>=50?'mid':'low');
+    return '<div class="rs-dim">'+
+      '<div class="rs-dim-name">'+d.name+'</div>'+
+      '<div class="rs-dim-bar"><div class="rs-dim-fill '+cls+'" style="width:'+d.score+'%"></div></div>'+
+      '<div class="rs-dim-score '+cls+'">'+d.score+'</div>'+
+    '</div>';
+  }).join('');
+  // 改进建议（取最低 3 个维度）
+  var weakest=dims.slice().sort(function(a,b){return a.score-b.score;}).slice(0,3);
+  var sugsHtml=weakest.map(function(d){
+    return '<div class="rs-sug-item">'+lic('arrow-right-circle',13)+'<span><b>'+d.name+'（'+d.score+'分）</b>：'+d.suggest+'</span></div>';
+  }).join('');
+  var gradeDesc=total>=80?'你的简历在各维度表现均衡，已达到可直接投递的水平，重点优化细节即可冲击offer。':(total>=65?'简历整体质量不错，但有明显短板，针对性补强后竞争力会大幅提升。':(total>=50?'简历存在较多不足，建议优先补全内容、增加量化表述和经历数量。':'简历目前较为单薄，建议先完善基础信息和经历，再进行评分。'));
+  var html='<div class="rs-panel" id="rsPanel">'+
+    '<div class="rs-head"><div class="ic">'+lic('gauge',16)+'</div><div class="tt">AI 简历评分报告</div><div class="close" id="rsClose">'+lic('x',16)+'</div></div>'+
+    '<div class="rs-body">'+
+      '<div class="rs-total">'+
+        '<div class="rs-total-ring" style="--rs-color:'+totalColor+';background:conic-gradient('+totalColor+' 0deg,'+totalColor+' '+totalDeg+'deg,#e2e8f0 '+totalDeg+'deg)">'+
+          '<span class="rs-num">'+total+'</span><span class="rs-unit">分</span>'+
+        '</div>'+
+        '<div class="rs-total-info">'+
+          '<span class="rs-grade-tag '+gradeCls+'">等级 '+grade+' · '+gradeLabel+'</span>'+
+          '<div class="rs-grade" style="color:'+totalColor+'">'+totalLabel(total)+'</div>'+
+          '<div class="rs-desc">'+gradeDesc+'</div>'+
+        '</div>'+
+      '</div>'+
+      '<div class="rs-dim-title">六维评分明细</div>'+
+      '<div class="rs-dims">'+dimsHtml+'</div>'+
+      '<div class="rs-suggest"><b>重点改进建议</b>'+sugsHtml+'</div>'+
+    '</div>'+
+  '</div>';
+  var resumeArea=$('resumeArea');
+  resumeArea.insertAdjacentHTML('beforebegin',html);
+  $('rsClose').addEventListener('click',function(){$('rsPanel').remove();});
+  refreshIcons();
+  toast('简历评分完成：'+total+' 分（等级 '+grade+'）',total>=75?'ok':'');
+  checkAchievement('ai_opt');
+}
+function totalLabel(t){
+  return t>=80?'非常优秀':(t>=65?'值得投递':(t>=50?'需再打磨':'需要完善'));
 }
 /* ---------- AI 职业问答 ---------- */
 function qaAsk(){
@@ -5850,6 +6142,8 @@ function bindEvents(){
   $('exportReportBtn').addEventListener('click',exportReport);
   // AI 优化建议
   $('aiOptBtn').addEventListener('click',aiOptimize);
+  // 简历评分
+  $('resumeScoreBtn').addEventListener('click',resumeScore);
   // ATS 关键词检测
   $('atsBtn').addEventListener('click',atsCheck);
   $('snBtn').addEventListener('click',showSalaryNegotiation);
